@@ -141,6 +141,11 @@
           <span class="lang-en">FAQ</span>
           <span class="lang-it">FAQ</span>
         </button>
+        <button onclick="switchTab('carpool')" id="tab-carpool"
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Carpool</span>
+          <span class="lang-it">Passaggi</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -891,6 +896,40 @@
       <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-como-100">
         <iframe title="Map with nearby airports" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"></iframe>
+      </div>
+    </div>
+
+    <!-- CARPOOL TAB -->
+    <div id="view-carpool" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-como-100">
+        <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-6 flex items-center gap-2">
+          <span>🚗</span>
+          <span class="lang-en">Carpool Coordination</span>
+          <span class="lang-it">Coordinamento Passaggi</span>
+        </h2>
+
+        <p class="text-como-600 mb-6 text-sm leading-relaxed">
+          <span class="lang-en">If you have extra space in your car or if you are looking for a ride, please use the
+            spreadsheet below to coordinate with other guests.</span>
+          <span class="lang-it">Se avete spazio extra in auto o se cercate un passaggio, usate il foglio di calcolo qui
+            sotto per coordinarvi con gli altri ospiti.</span>
+        </p>
+
+        <div class="flex flex-col gap-4">
+          <a href="https://docs.google.com/spreadsheets/d/1Ce6bkD-IclU2j1PzZ5qWcROJWGvhIcvJPfZmhJLb4GA/edit?usp=sharing"
+            target="_blank"
+            class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-como-600 hover:bg-como-700 transition shadow-sm">
+            <span class="lang-en">Open Spreadsheet to Edit</span>
+            <span class="lang-it">Apri il Foglio per Modificare</span>
+          </a>
+
+          <div class="border border-como-100 rounded-xl overflow-hidden h-[600px]">
+            <iframe
+              src="https://docs.google.com/spreadsheets/d/1Ce6bkD-IclU2j1PzZ5qWcROJWGvhIcvJPfZmhJLb4GA/edit?usp=sharing&rm=minimal"
+              width="100%" height="100%" style="border:0;" loading="lazy">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
 
