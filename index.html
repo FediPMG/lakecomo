@@ -137,15 +137,22 @@
       }
 
       .btn {
-        border: 1px solid #ccdacf;
-        background: #f4faf5;
-        color: #2f5f45;
-        border-radius: 10px;
-        font-weight: 600;
+        border: 1px solid #bfd4c3;
+        background: linear-gradient(135deg, #f6fbf7 0%, #e8f4ec 100%);
+        color: #2a5b42;
+        border-radius: 999px;
+        font-weight: 700;
         text-decoration: none;
         text-align: center;
         font-size: 0.9rem;
-        padding: 0.52rem 0.68rem;
+        padding: 0.55rem 0.74rem;
+        box-shadow: 0 4px 12px rgba(58, 93, 73, 0.12);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 15px rgba(58, 93, 73, 0.16);
       }
 
       .stack {
@@ -180,6 +187,23 @@
         border-radius: 12px;
         padding: 0.65rem;
         background: #fbfdfb;
+      }
+
+      .item h4 {
+        margin: 0;
+        font-size: 0.97rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .item p {
+        margin: 0.38rem 0 0;
+      }
+
+      .item ol {
+        margin: 0.38rem 0 0;
+        padding-left: 1.05rem;
       }
 
       a {
@@ -228,7 +252,7 @@
           class="hero-map"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=45.81183,9.08312&z=17&output=embed"
+          src="https://www.google.com/maps?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia&z=17&output=embed"
         ></iframe>
         <div class="hero-body">
           <h1>Federica &amp; Max Wedding Guide</h1>
@@ -236,24 +260,24 @@
           <div class="chips">
             <span class="chip">Saturday 23 May 2026</span>
             <span class="chip">Arrival from 3:00 PM</span>
-            <span class="chip">Yacht Club, Lake Como</span>
+            <span class="chip">Yacht Club Como</span>
           </div>
         </div>
       </section>
 
       <section class="info-grid">
         <article class="info-card">
-          <h3>Wedding Venue</h3>
-          <p><strong>Yacht Club, Lake Como</strong></p>
-          <p class="sub">Viale Giancarlo Puecher, 8, 22100 Como CO, Italy</p>
+          <h3>📍 Wedding Venue</h3>
+          <p><strong>Yacht Club Como</strong></p>
+          <p class="sub">Viale Giancarlo Puecher, 8, 22100 Como CO, Italia</p>
           <div class="quick-links">
-            <a class="btn" href="https://maps.google.com/?q=Yacht+Club+Lake+Como,+Viale+Giancarlo+Puecher+8,+Como" target="_blank" rel="noopener noreferrer">Open venue in Google Maps</a>
-            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Lake+Como,+Viale+Giancarlo+Puecher+8,+Como" target="_blank" rel="noopener noreferrer">Get directions in Google Maps</a>
+            <a class="btn" href="https://maps.google.com/?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer">🗺️ Open venue in Google Maps</a>
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer">🧭 Get directions in Google Maps</a>
           </div>
         </article>
 
         <article class="info-card">
-          <h3>Important Travel Advice</h3>
+          <h3>🧭 Important Travel Advice</h3>
           <ul>
             <li><strong>Please allow extra time</strong> for traffic and parking in Como.</li>
             <li>Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</li>
@@ -265,15 +289,58 @@
       <section class="stack">
         <article class="section-card">
           <div class="section-head">
-            <h2>Parking Options</h2>
-            <p class="sub">Closest options first. All parking points are shown on the map below.</p>
+            <h2>🚗 Recommended Parking Options</h2>
+            <p class="sub">There are no free parking options. We have listed bus routes from each car park to the Yacht Club.</p>
           </div>
           <div class="parking-list">
-            <div class="item"><strong>1) Parcheggio a pagamento Lungolago · ~1 min walk</strong><br /><a href="https://maps.app.goo.gl/Z9fKspF4uhTKhGRG6" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
-            <div class="item"><strong>2) Parcheggio centro Lago · ~5 min walk</strong><br /><a href="https://maps.app.goo.gl/T1aNQwXwB6YDZLfm9" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
-            <div class="item"><strong>3) Viale Lecco, 9 · ~15 min walk</strong><br /><a href="https://maps.google.com/?q=Viale+Lecco,+9,+22100+Como+CO,+Italy" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
-            <div class="item"><strong>4) Via Adriano Auguadri · ~20 min walk</strong><br /><a href="https://maps.google.com/?q=Via+Adriano+Auguadri,+22100+Como+CO,+Italy" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
+            <div class="item">
+              <h4>🚶 Parcheggio Lungolago · 2 min walk</h4>
+              <p><a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4?entry=s&sa=X&ved=2ahUKEwjV0_mBndmSAxXTVEEAHckXGaQQ4kB6BAgEEAA&hl=en" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
+              <p><strong>To venue:</strong> easiest on foot.</p>
+              <p><strong>By bus:</strong> use Linea N1 from Como – S. Rocchetto to Como – Villa Olmo if preferred.</p>
+            </div>
+
+            <div class="item">
+              <h4>🚶 Parcheggio Centro Lago · 7 min walk</h4>
+              <p><a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb?entry=s&sa=X&ved=2ahUKEwj7lLyandmSAxV_SvEDHT3XODoQ4kB6BAgEEAA&hl=en" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
+              <p><strong>To venue:</strong> easiest on foot.</p>
+              <p><strong>By bus:</strong> use Linea N1 from Como – Cavour to Como – Villa Olmo if preferred.</p>
+            </div>
+
+            <div class="item">
+              <h4>🚶 Como Central Parking · 15 min walk</h4>
+              <p><a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
+              <p><strong>Bus stop:</strong> Como – S. Rocchetto (Linea N1)</p>
+              <ol>
+                <li><strong>To venue:</strong> N1 from S. Rocchetto → Como – Villa Olmo, then short walk.</li>
+                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → S. Rocchetto.</li>
+              </ol>
+              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:46 S. Rocchetto.</p>
+            </div>
+
+            <div class="item">
+              <h4>🚶 Autosilo Viale Lecco · 20–25 min walk</h4>
+              <p><a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
+              <p><strong>Bus stop:</strong> Como – Cavour (Linea N1)</p>
+              <ol>
+                <li><strong>To venue:</strong> N1 from Cavour → Como – Villa Olmo, then lakeside walk.</li>
+                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → Como – Cavour.</li>
+              </ol>
+              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:50 Como – Cavour.</p>
+            </div>
+
+            <div class="item">
+              <h4>🚶 Via A. Auguadri area · 20–25 min walk</h4>
+              <p><a href="https://maps.app.goo.gl/Th8nMCEkvz5P4bcx8?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
+              <p><strong>Bus stop:</strong> Como – P.zza Vittoria (Linea N1)</p>
+              <ol>
+                <li><strong>To venue:</strong> N1 from P.zza Vittoria → Como – Villa Olmo, then lakeside walk.</li>
+                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → P.zza Vittoria.</li>
+              </ol>
+              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:54 P.zza Vittoria.</p>
+            </div>
           </div>
+          <p class="sub">Important: bus services can change due to events or temporary diversions. Please re-check Linea N1 on the <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" rel="noopener noreferrer">official ASF Autolinee timetable</a> before traveling.</p>
           <iframe
             title="Map with parking options"
             class="section-map"
@@ -285,7 +352,7 @@
 
         <article class="section-card">
           <div class="section-head">
-            <h2>Recommended Hotels</h2>
+            <h2>🛎️ Recommended Hotels</h2>
             <p class="sub">Suggested places in/near Como for convenience.</p>
           </div>
           <div class="hotel-list">
@@ -305,7 +372,7 @@
 
         <article class="section-card">
           <div class="section-head">
-            <h2>Public Transport</h2>
+            <h2>🚌 Public Transport</h2>
             <p>Bus routes and timetables: <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" rel="noopener noreferrer">ASF Autolinee (English)</a></p>
             <p class="sub">Tip: save a screenshot of your return route before the wedding starts.</p>
           </div>
@@ -313,7 +380,7 @@
 
         <article class="section-card">
           <div class="section-head">
-            <h2>Nearby Airports</h2>
+            <h2>✈️ Nearby Airports</h2>
             <p class="sub">Useful airport options for guests flying in.</p>
           </div>
           <div class="airport-list">
