@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Federica & Max | Wedding Guest Guide</title>
+    <meta
+      name="description"
+      content="Mobile-friendly travel guide for Federica and Max's wedding in Como, with venue, parking, hotels, and airport maps."
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --bg: #f5f9f6;
+        --card: #ffffff;
+        --text: #15251c;
+        --muted: #516559;
+        --sage: #6e8877;
+        --sage-dark: #3f5849;
+        --sage-soft: #edf3ee;
+        --border: #d7e3db;
+        --shadow: 0 10px 26px rgba(34, 53, 43, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: linear-gradient(180deg, #edf4ef 0%, var(--bg) 35%, #f8fcf9 100%);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.45;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0.9rem;
+      }
+
+      .hero,
+      .section-card,
+      .info-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-map,
+      .section-map {
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .hero-map {
+        height: 360px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .hero-body {
+        padding: 1rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.55rem;
+        color: #1d3026;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.18rem;
+        color: #1d3026;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .sub {
+        color: var(--muted);
+        margin: 0.35rem 0 0;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.75rem;
+      }
+
+      .chip {
+        background: var(--sage-soft);
+        border: 1px solid #cddccf;
+        color: var(--sage-dark);
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 0.36rem 0.72rem;
+        font-size: 0.86rem;
+      }
+
+      .info-grid {
+        margin-top: 0.8rem;
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .info-card {
+        padding: 0.95rem;
+      }
+
+      ul {
+        margin: 0.45rem 0 0;
+        padding-left: 1.1rem;
+      }
+
+      li + li {
+        margin-top: 0.32rem;
+      }
+
+      .quick-links {
+        margin-top: 0.65rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+      }
+
+      .btn {
+        border: 1px solid #ccdacf;
+        background: #f4faf5;
+        color: #2f5f45;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.52rem 0.68rem;
+      }
+
+      .stack {
+        margin-top: 0.9rem;
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .section-card {
+        padding: 0.95rem;
+      }
+
+      .section-head {
+        margin-bottom: 0.55rem;
+      }
+
+      .section-map {
+        height: 280px;
+        border: 1px solid #d4e1d8;
+        margin-top: 0.65rem;
+      }
+
+      .parking-list,
+      .hotel-list,
+      .airport-list {
+        display: grid;
+        gap: 0.45rem;
+        margin-top: 0.45rem;
+      }
+
+      .item {
+        border: 1px solid #d8e5dc;
+        border-radius: 12px;
+        padding: 0.65rem;
+        background: #fbfdfb;
+      }
+
+      a {
+        color: #2f5f45;
+      }
+
+      .foot {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 0.75rem;
+        font-size: 0.88rem;
+      }
+
+      @media (min-width: 760px) {
+        .page {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 1.85rem;
+        }
+
+        .hero-map {
+          height: 430px;
+        }
+
+        .info-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quick-links {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .section-map {
+          height: 340px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div id="venueMap" class="hero-map" aria-label="Map centered on wedding venue"></div>
+        <div class="hero-body">
+          <h1>Federica &amp; Max Wedding Guide</h1>
+          <p class="sub">At-a-glance information for travel, parking, accommodation, and airport options.</p>
+          <div class="chips">
+            <span class="chip">Saturday 23 May 2026</span>
+            <span class="chip">Arrival from 3:00 PM</span>
+            <span class="chip">Yacht Club, Lake Como</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card">
+          <h3>Wedding Venue</h3>
+          <p><strong>Yacht Club, Lake Como</strong></p>
+          <p class="sub">Viale Giancarlo Puecher, 8, 22100 Como CO, Italy</p>
+          <div class="quick-links">
+            <a class="btn" href="https://maps.google.com/?q=Yacht+Club+Lake+Como,+Viale+Giancarlo+Puecher+8,+Como" target="_blank" rel="noopener noreferrer">Open venue in Google Maps</a>
+            <a class="btn" href="https://www.openstreetmap.org/?mlat=45.81183&mlon=9.08312#map=17/45.81183/9.08312" target="_blank" rel="noopener noreferrer">Open venue in OpenStreetMap</a>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <h3>Important Travel Advice</h3>
+          <ul>
+            <li><strong>Please allow extra time</strong> for traffic and parking in Como.</li>
+            <li>Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</li>
+            <li>If using public transport, confirm return times before the ceremony.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="stack">
+        <article class="section-card">
+          <div class="section-head">
+            <h2>Parking Options</h2>
+            <p class="sub">Closest options first. All parking points are shown on the map below.</p>
+          </div>
+          <div class="parking-list">
+            <div class="item"><strong>1) Parcheggio a pagamento Lungolago · ~1 min walk</strong><br /><a href="https://maps.app.goo.gl/Z9fKspF4uhTKhGRG6" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
+            <div class="item"><strong>2) Parcheggio centro Lago · ~5 min walk</strong><br /><a href="https://maps.app.goo.gl/T1aNQwXwB6YDZLfm9" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
+            <div class="item"><strong>3) Viale Lecco, 9 · ~15 min walk</strong><br /><a href="https://maps.google.com/?q=Viale+Lecco,+9,+22100+Como+CO,+Italy" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
+            <div class="item"><strong>4) Via Adriano Auguadri · ~20 min walk</strong><br /><a href="https://maps.google.com/?q=Via+Adriano+Auguadri,+22100+Como+CO,+Italy" target="_blank" rel="noopener noreferrer">Open in maps</a></div>
+          </div>
+          <div id="parkingMap" class="section-map" aria-label="Map with parking options"></div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-head">
+            <h2>Recommended Hotels</h2>
+            <p class="sub">Suggested places in/near Como for convenience.</p>
+          </div>
+          <div class="hotel-list">
+            <div class="item"><strong>Palace Hotel Como</strong><br />Lungo Lario Trieste, 16 · near lakefront and venue area</div>
+            <div class="item"><strong>Hotel Metropole Suisse</strong><br />Piazza Cavour, 19 · central and walkable</div>
+            <div class="item"><strong>Hilton Lake Como</strong><br />Via Borgo Vico, 241 · modern option, short taxi ride</div>
+            <div class="item"><strong>B&amp;B Hotel Como City Center</strong><br />Viale Innocenzo XI, 15 · practical city-center location</div>
+          </div>
+          <div id="hotelMap" class="section-map" aria-label="Map with recommended hotels"></div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-head">
+            <h2>Public Transport</h2>
+            <p>Bus routes and timetables: <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" rel="noopener noreferrer">ASF Autolinee (English)</a></p>
+            <p class="sub">Tip: save a screenshot of your return route before the wedding starts.</p>
+          </div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-head">
+            <h2>Nearby Airports</h2>
+            <p class="sub">Useful airport options for guests flying in.</p>
+          </div>
+          <div class="airport-list">
+            <div class="item"><strong>Milan Malpensa (MXP)</strong> · best major option for Como</div>
+            <div class="item"><strong>Milan Linate (LIN)</strong> · central Milan airport</div>
+            <div class="item"><strong>Milan Bergamo (BGY)</strong> · often good low-cost routes</div>
+            <div class="item"><strong>Lugano Airport (LUG)</strong> · closest Swiss option</div>
+          </div>
+          <div id="airportMap" class="section-map" aria-label="Map with nearby airports"></div>
+        </article>
+      </section>
+
+      <p class="foot">We can’t wait to celebrate with you in Lake Como 🤍</p>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      const tileUrl = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+      const tileAttribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+
+      function initMap(id, points, options = {}) {
+        const map = L.map(id, { scrollWheelZoom: false, zoomControl: true });
+        L.tileLayer(tileUrl, { attribution: tileAttribution }).addTo(map);
+
+        const bounds = [];
+
+        points.forEach((point, index) => {
+          const marker = L.marker(point.coords).addTo(map);
+          marker.bindPopup(`<strong>${point.name}</strong><br>${point.note || ""}`);
+          if (options.openFirst && index === 0) marker.openPopup();
+          bounds.push(point.coords);
+        });
+
+        if (bounds.length === 1) {
+          map.setView(bounds[0], options.singleZoom || 16);
+        } else {
+          map.fitBounds(bounds, { padding: [24, 24] });
+        }
+
+        if (options.highlight) {
+          L.circle(options.highlight.coords, {
+            radius: options.highlight.radius || 180,
+            color: "#3f5849",
+            fillColor: "#6e8877",
+            fillOpacity: 0.18,
+            weight: 2,
+          }).addTo(map);
+        }
+      }
+
+      const venue = [{ name: "Wedding Venue · Yacht Club, Lake Como", coords: [45.81183, 9.08312], note: "Arrival 3:00 PM" }];
+
+      const parking = [
+        { name: "Parcheggio a pagamento Lungolago", coords: [45.8114, 9.0825], note: "~1 min walk" },
+        { name: "Parcheggio centro Lago", coords: [45.8123, 9.0845], note: "~5 min walk" },
+        { name: "Parking · Viale Lecco, 9", coords: [45.8079, 9.0903], note: "~15 min walk" },
+        { name: "Parking · Via Adriano Auguadri", coords: [45.8069, 9.0944], note: "~20 min walk" },
+      ];
+
+      const hotels = [
+        { name: "Palace Hotel Como", coords: [45.8124, 9.0839], note: "Lakefront" },
+        { name: "Hotel Metropole Suisse", coords: [45.8118, 9.0842], note: "Central Como" },
+        { name: "Hilton Lake Como", coords: [45.8063, 9.0776], note: "Via Borgo Vico" },
+        { name: "B&B Hotel Como City Center", coords: [45.8095, 9.0761], note: "City center" },
+      ];
+
+      const airports = [
+        { name: "Milan Malpensa Airport (MXP)", coords: [45.6306, 8.7281], note: "Major international airport" },
+        { name: "Milan Linate Airport (LIN)", coords: [45.4451, 9.2767], note: "Milan city airport" },
+        { name: "Milan Bergamo Airport (BGY)", coords: [45.6689, 9.7003], note: "Popular low-cost hub" },
+        { name: "Lugano Airport (LUG)", coords: [46.0043, 8.9106], note: "Nearest Swiss airport" },
+      ];
+
+      initMap("venueMap", venue, {
+        openFirst: true,
+        singleZoom: 17,
+        highlight: { coords: [45.81183, 9.08312], radius: 170 },
+      });
+      initMap("parkingMap", parking, { openFirst: true });
+      initMap("hotelMap", hotels, { openFirst: true });
+      initMap("airportMap", airports, { openFirst: true });
+    </script>
+  </body>
+</html>
