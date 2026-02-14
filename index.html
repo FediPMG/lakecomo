@@ -1,45 +1,44 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Federica & Max | Wedding Guest Guide</title>
     <meta
       name="description"
-      content="Mobile-friendly travel guide for Federica and Max's wedding in Como, with venue, parking, hotels, and airport maps."
+      content="Mobile-friendly travel guide for Federica and Max's wedding in Como."
     />
     
-    <!-- Fonts: Playfair Display for elegance, Inter for readability -->
+    <!-- Fonts: Playfair Display for elegance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (via CDN for standalone simplicity) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <!-- Tailwind Config -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Inter"', 'sans-serif'],
+              sans: ['"Avenir Next"', 'Avenir', '"Nunito Sans"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
             },
             colors: {
               como: {
-                50: '#f2f7f4',
-                100: '#e1ede6',
-                200: '#c5dccf',
-                300: '#9dbfae',
-                400: '#749f8a',
-                500: '#52826c', /* Primary Green */
-                600: '#3e6654',
-                700: '#335244',
-                800: '#2b4238',
-                900: '#24372f',
+                50: '#F9F7F4',  
+                100: '#F0ECE3', 
+                200: '#DBCDB2', 
+                300: '#BCC5B6', 
+                400: '#8E7C69', 
+                500: '#6E7A71', 
+                600: '#3D4F46', 
+                700: '#303E38', 
+                800: '#202324', 
+                900: '#111213', 
               },
-              cream: '#faf9f6',
             }
           }
         }
@@ -47,79 +46,78 @@
     </script>
 
     <style>
-      /* Custom Scrollbar for a premium feel */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f2f7f4;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #9dbfae;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #749f8a;
-      }
-      
       .map-container iframe {
         width: 100%;
         height: 100%;
         border: 0;
       }
+      /* Hide scrollbar for clean app feel */
+      body {
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+      }
+      body::-webkit-scrollbar { 
+        display: none; 
+      }
     </style>
   </head>
-  <body class="bg-como-50 text-como-900 font-sans antialiased selection:bg-como-200 selection:text-como-900">
+  <body class="bg-como-50 text-como-900 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Header / Hero Section -->
-    <header class="relative bg-white pt-12 pb-16 px-6 text-center shadow-sm border-b border-como-100">
-      <div class="max-w-3xl mx-auto space-y-4">
-        <p class="text-como-500 font-medium tracking-widest text-sm uppercase">The Wedding of</p>
-        <h1 class="font-serif text-5xl md:text-6xl text-como-800">Federica <span class="text-como-400 italic">&amp;</span> Max</h1>
-        <div class="flex flex-wrap justify-center gap-3 mt-6 text-como-700 font-medium">
-          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">May 23, 2026</span>
-          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">3:00 PM</span>
-          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">Como, Italy</span>
-        </div>
+    <!-- Compact Sticky Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm border-b border-como-100 sticky top-0 z-50">
+      <div class="max-w-3xl mx-auto px-4 py-4 text-center">
+        <p class="text-como-500 font-medium tracking-widest text-[10px] uppercase mb-1">The Wedding of</p>
+        <h1 class="font-serif text-2xl md:text-3xl text-como-800 leading-tight">Federica <span class="text-como-400 italic">&amp;</span> Max</h1>
+        
+        <!-- Navigation Tabs -->
+        <nav class="flex flex-wrap justify-center gap-2 mt-3">
+          <button onclick="switchTab('venue')" id="tab-venue" class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Venue</button>
+          <button onclick="switchTab('parking')" id="tab-parking" class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Parking</button>
+          <button onclick="switchTab('hotels')" id="tab-hotels" class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Hotels</button>
+          <button onclick="switchTab('airports')" id="tab-airports" class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Airports</button>
+        </nav>
       </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-6 w-full">
 
-      <!-- Venue & Main Map Section -->
-      <section class="grid md:grid-cols-2 gap-8 items-start">
-        
-        <!-- Text Info -->
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-como-100 h-full flex flex-col justify-center">
+      <!-- VENUE TAB -->
+      <div id="view-venue" class="tab-content animate-fade-in space-y-6">
+        <div class="text-center mb-4">
+           <div class="inline-flex flex-wrap justify-center gap-3 text-como-600 font-medium text-sm bg-white px-4 py-2 rounded-full shadow-sm border border-como-100">
+            <span>May 23, 2026</span>
+            <span class="text-como-300">•</span>
+            <span>3:00 PM</span>
+            <span class="text-como-300">•</span>
+            <span>Como, Italy</span>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-como-100">
           <div class="flex items-center gap-2 text-como-500 mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
-            <span class="uppercase tracking-wide text-xs font-bold">The Venue</span>
+            <span class="uppercase tracking-wide text-xs font-bold">Ceremony & Reception</span>
           </div>
-          <h2 class="font-serif text-3xl text-como-800 mb-4">Yacht Club Como</h2>
-          <p class="text-como-600 mb-6 leading-relaxed">
+          <h2 class="font-serif text-3xl text-como-800 mb-2">Yacht Club Como</h2>
+          <p class="text-como-600 mb-6 leading-relaxed text-lg">
             Viale Giancarlo Puecher, 8<br>
             22100 Como CO, Italia
           </p>
           
-          <div class="bg-orange-50 border-l-4 border-orange-200 p-4 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-orange-900 text-sm mb-1">Important Arrival Info</h3>
-            <p class="text-orange-800 text-sm">Please allow extra time for traffic. Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</p>
+          <div class="bg-como-50 border-l-4 border-como-400 p-4 mb-6 rounded-r-lg">
+            <h3 class="font-bold text-como-800 text-sm mb-1">Important Arrival Info</h3>
+            <p class="text-como-600 text-sm">Please allow extra time for traffic. Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+          <div class="flex flex-col sm:flex-row gap-3">
             <a href="https://maps.google.com/?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer" 
-               class="flex-1 inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-como-600 hover:bg-como-700 transition shadow-lg shadow-como-200/50">
+               class="flex-1 inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-como-600 hover:bg-como-700 transition shadow-lg shadow-como-200/50">
                Open Google Maps
-            </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer"
-               class="flex-1 inline-flex justify-center items-center px-6 py-3 border border-como-200 text-base font-medium rounded-xl text-como-700 bg-white hover:bg-como-50 transition">
-               Get Directions
             </a>
           </div>
         </div>
 
-        <!-- Map Embed -->
-        <div class="h-80 md:h-full min-h-[320px] rounded-2xl overflow-hidden shadow-md border border-como-200 map-container relative">
+        <div class="h-64 md:h-80 rounded-2xl overflow-hidden shadow-md border border-como-200 map-container relative">
            <iframe
             title="Map centered on wedding venue"
             loading="lazy"
@@ -127,173 +125,192 @@
             src="https://www.google.com/maps?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia&z=17&output=embed"
           ></iframe>
         </div>
-      </section>
+      </div>
 
-      <!-- Parking Section -->
-      <section>
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px bg-como-200 flex-1"></div>
-          <h2 class="font-serif text-2xl text-como-800">Parking & Transport</h2>
-          <div class="h-px bg-como-200 flex-1"></div>
-        </div>
-
+      <!-- PARKING TAB -->
+      <div id="view-parking" class="tab-content hidden space-y-6">
         <div class="bg-white rounded-2xl shadow-sm border border-como-100 overflow-hidden">
-          <div class="p-6 md:p-8 bg-como-50 border-b border-como-100">
-             <p class="text-como-700 text-sm md:text-base max-w-2xl">
-               There are <strong>no free parking options</strong> near the venue. Below are recommended paid parking lots and the best bus routes to reach the Yacht Club.
+          <div class="p-5 bg-como-50 border-b border-como-100">
+             <h2 class="font-serif text-xl text-como-800 mb-2">Parking Options</h2>
+             <p class="text-como-700 text-sm">
+               There are <strong>no free parking options</strong> near the venue. Below are recommended paid lots.
              </p>
           </div>
           
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-como-100">
+          <div class="divide-y divide-como-100">
             <!-- P1 -->
-            <div class="p-6 hover:bg-como-50 transition">
-              <div class="flex justify-between items-start mb-2">
+            <div class="p-5 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-1">
                 <h4 class="font-bold text-como-800">Parcheggio Lungolago</h4>
-                <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-1 rounded">2 min walk</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">2 min walk</span>
               </div>
-              <p class="text-sm text-como-600 mb-3">Easiest option. Walk directly to the venue.</p>
-              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+              <p class="text-sm text-como-600">Easiest option. Walk directly to the venue.</p>
+              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4" target="_blank" class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map &rarr;</a>
             </div>
 
             <!-- P2 -->
-            <div class="p-6 hover:bg-como-50 transition">
-              <div class="flex justify-between items-start mb-2">
+            <div class="p-5 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-1">
                 <h4 class="font-bold text-como-800">Centro Lago</h4>
-                <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-1 rounded">7 min walk</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">7 min walk</span>
               </div>
-              <p class="text-sm text-como-600 mb-3">Short walk along the lake. Or Bus N1 from Cavour.</p>
-              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+              <p class="text-sm text-como-600">Short walk along the lake. Or Bus N1 from Cavour.</p>
+              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb" target="_blank" class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map &rarr;</a>
             </div>
 
             <!-- P3 -->
-            <div class="p-6 hover:bg-como-50 transition">
-              <div class="flex justify-between items-start mb-2">
+            <div class="p-5 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-1">
                 <h4 class="font-bold text-como-800">Como Central</h4>
-                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">15 min walk</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white border border-como-200 text-como-600 px-2 py-1 rounded">15 min walk</span>
               </div>
-              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</p>
-              <a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+              <p class="text-sm text-como-600">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</p>
+              <a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6" target="_blank" class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map &rarr;</a>
             </div>
 
             <!-- P4 -->
-            <div class="p-6 hover:bg-como-50 transition">
-               <div class="flex justify-between items-start mb-2">
+            <div class="p-5 hover:bg-como-50 transition">
+               <div class="flex justify-between items-start mb-1">
                 <h4 class="font-bold text-como-800">Autosilo Viale Lecco</h4>
-                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">20 min walk</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white border border-como-200 text-como-600 px-2 py-1 rounded">20 min walk</span>
               </div>
-              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>Cavour</em> to <em>Villa Olmo</em>.</p>
-              <a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
-            </div>
-             <!-- P5 -->
-             <div class="p-6 hover:bg-como-50 transition md:col-span-2 lg:col-span-2">
-               <div class="flex justify-between items-start mb-2">
-                <h4 class="font-bold text-como-800">Via A. Auguadri Area</h4>
-                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">25 min walk</span>
-              </div>
-              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>P.zza Vittoria</em> to <em>Villa Olmo</em>.</p>
-              <a href="https://maps.app.goo.gl/Th8nMCEkvz5P4bcx8" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+              <p class="text-sm text-como-600">Bus N1 from <em>Cavour</em> to <em>Villa Olmo</em>.</p>
+              <a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8" target="_blank" class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map &rarr;</a>
             </div>
           </div>
-          
-          <!-- Parking Map -->
-          <div class="w-full h-64 bg-slate-100 map-container">
+        </div>
+        
+        <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-como-100">
             <iframe
               title="Map with parking options"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Parking+near+Yacht+Club+Lake+Como&z=15&output=embed"
             ></iframe>
-          </div>
         </div>
-        
-        <div class="mt-4 text-center">
-            <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" class="inline-flex items-center text-sm text-como-500 hover:text-como-800 transition">
-              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-              Check official ASF bus timetables
-            </a>
-        </div>
-      </section>
+      </div>
 
-      <!-- Accommodation & Airports Grid -->
-      <section class="grid lg:grid-cols-2 gap-8">
-        
-        <!-- Hotels -->
-        <article class="bg-white rounded-2xl shadow-sm border border-como-100 p-6 md:p-8 flex flex-col">
-          <h2 class="font-serif text-2xl text-como-800 mb-4 flex items-center gap-2">
+      <!-- HOTELS TAB -->
+      <div id="view-hotels" class="tab-content hidden space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-como-100 p-6">
+          <h2 class="font-serif text-2xl text-como-800 mb-6 flex items-center gap-2">
             <span>🛎️</span> Accommodation
           </h2>
-          <div class="space-y-4 mb-6 flex-grow">
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Palace Hotel Como</strong>
-              <span class="text-sm text-como-500">Lungo Lario Trieste, 16 · Near lakefront</span>
+          <div class="space-y-6">
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Palace Hotel Como</strong>
+              <span class="text-sm text-como-500 block">Lungo Lario Trieste, 16</span>
+              <span class="text-xs text-como-400 italic">Near lakefront & venue</span>
             </div>
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Hotel Metropole Suisse</strong>
-              <span class="text-sm text-como-500">Piazza Cavour, 19 · Central</span>
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Hotel Metropole Suisse</strong>
+              <span class="text-sm text-como-500 block">Piazza Cavour, 19</span>
+              <span class="text-xs text-como-400 italic">Central location</span>
             </div>
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Hilton Lake Como</strong>
-              <span class="text-sm text-como-500">Via Borgo Vico, 241 · Modern</span>
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Hilton Lake Como</strong>
+              <span class="text-sm text-como-500 block">Via Borgo Vico, 241</span>
+              <span class="text-xs text-como-400 italic">Modern option</span>
             </div>
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">B&amp;B Hotel Como City Center</strong>
-              <span class="text-sm text-como-500">Viale Innocenzo XI, 15 · Practical</span>
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">B&amp;B Hotel Como City Center</strong>
+              <span class="text-sm text-como-500 block">Viale Innocenzo XI, 15</span>
+              <span class="text-xs text-como-400 italic">Practical choice</span>
             </div>
           </div>
-          <div class="h-48 rounded-xl overflow-hidden map-container shadow-inner border border-como-100">
+        </div>
+        <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-como-100">
              <iframe
               title="Map with recommended hotels"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Hotels+near+Yacht+Club+Lake+Como&z=14&output=embed"
             ></iframe>
-          </div>
-        </article>
+        </div>
+      </div>
 
-        <!-- Airports -->
-        <article class="bg-white rounded-2xl shadow-sm border border-como-100 p-6 md:p-8 flex flex-col">
-          <h2 class="font-serif text-2xl text-como-800 mb-4 flex items-center gap-2">
-            <span>✈️</span> Airports
+      <!-- AIRPORTS TAB -->
+      <div id="view-airports" class="tab-content hidden space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-como-100 p-6">
+          <h2 class="font-serif text-2xl text-como-800 mb-6 flex items-center gap-2">
+            <span>✈️</span> Nearby Airports
           </h2>
-           <div class="space-y-4 mb-6 flex-grow">
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <div class="flex justify-between">
-                <strong class="text-como-800">Milan Malpensa (MXP)</strong>
-                <span class="text-xs bg-como-100 text-como-700 px-2 py-0.5 rounded">Best Option</span>
+           <div class="space-y-6">
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <div class="flex justify-between items-center mb-1">
+                <strong class="text-lg text-como-800">Milan Malpensa (MXP)</strong>
+                <span class="text-[10px] font-bold uppercase bg-como-600 text-white px-2 py-0.5 rounded">Best Choice</span>
               </div>
-              <span class="text-sm text-como-500">Major international hub</span>
+              <span class="text-sm text-como-500">Major international hub, ~45 mins away.</span>
             </div>
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Milan Linate (LIN)</strong>
-              <span class="text-sm text-como-500">Closest to Milan center</span>
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Milan Linate (LIN)</strong>
+              <span class="text-sm text-como-500">Closest to Milan center, ~1 hour away.</span>
             </div>
-            <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Milan Bergamo (BGY)</strong>
-              <span class="text-sm text-como-500">Good for low-cost flights</span>
+            <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Milan Bergamo (BGY)</strong>
+              <span class="text-sm text-como-500">Good for low-cost flights (Ryanair), ~1 hr 15 mins.</span>
             </div>
-             <div class="pb-3 border-b border-como-50 last:border-0">
-              <strong class="block text-como-800">Lugano Airport (LUG)</strong>
-              <span class="text-sm text-como-500">Closest Swiss option</span>
+             <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
+              <strong class="block text-lg text-como-800 mb-1">Lugano Airport (LUG)</strong>
+              <span class="text-sm text-como-500">Closest Swiss option, ~40 mins away.</span>
             </div>
           </div>
-          <div class="h-48 rounded-xl overflow-hidden map-container shadow-inner border border-como-100">
+        </div>
+        <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-como-100">
              <iframe
               title="Map with nearby airports"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"
             ></iframe>
-          </div>
-        </article>
-
-      </section>
+        </div>
+      </div>
 
     </main>
 
-    <footer class="text-center py-12 px-4 bg-white border-t border-como-100">
-      <p class="font-serif text-xl italic text-como-600 mb-2">We can’t wait to celebrate with you.</p>
-      <p class="text-sm text-como-400">Lake Como · May 2026</p>
+    <footer class="mt-auto text-center py-8 px-4 border-t border-como-100 text-como-400 text-xs">
+      <p>Federica & Max · May 23, 2026</p>
     </footer>
 
+    <!-- Tab Switching Logic -->
+    <script>
+      function switchTab(tabName) {
+        // 1. Hide all content views
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => {
+          content.classList.add('hidden');
+        });
+
+        // 2. Show the selected view
+        const selectedView = document.getElementById('view-' + tabName);
+        if (selectedView) {
+          selectedView.classList.remove('hidden');
+        }
+
+        // 3. Update button styles
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => {
+          // Reset to inactive style (light bg, dark text)
+          btn.classList.remove('bg-como-600', 'text-white', 'border-transparent');
+          btn.classList.add('bg-transparent', 'text-como-600', 'border-como-200');
+        });
+
+        // Set active style (dark green bg, white text)
+        const activeBtn = document.getElementById('tab-' + tabName);
+        if (activeBtn) {
+          activeBtn.classList.remove('bg-transparent', 'text-como-600', 'border-como-200');
+          activeBtn.classList.add('bg-como-600', 'text-white', 'border-transparent');
+        }
+        
+        // Scroll to top of main content softly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Initialize default tab (Venue)
+      document.addEventListener('DOMContentLoaded', () => {
+        switchTab('venue');
+      });
+    </script>
   </body>
 </html>
