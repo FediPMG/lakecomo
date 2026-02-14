@@ -18,7 +18,7 @@ Standard hotels in Como center can be expensive. These nearby spots offer great 
 ### Grandate (Ideal if you have a car)
 - **Why:** Right off the highway and very budget-friendly.
 - **Note:** The last train is early (22:16), so plan for a ~€20 taxi back.
-- **Stay:** [Ibis Como](https://all.accor.com/hotel/1131/index.en.shtml)
+- **Stay:** [Ibis Como](https://all.accor.com/hotel/5604/index.en.shtml)
 
 ---
 
