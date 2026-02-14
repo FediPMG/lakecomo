@@ -6,6 +6,7 @@ The wedding is in Lake Como, but we will be staying in Varedo, about a 40 minute
 
 ### Como Area
 - [Albergo Firenze Como](https://www.hotelfirenzecomo.com/)
+- [The Convo Lake Como](https://hotels.cloudbeds.com/en/reservation/5DhQ1a?currency=eur)
 
 ### Saronno (Intermediate)
 - [Hotel Cyrano Saronno](https://www.hotelcyranosaronno.com/)
