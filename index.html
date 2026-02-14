@@ -77,6 +77,15 @@
     .animate-fade-in {
       animation: fadeIn 0.4s ease-out forwards;
     }
+
+    /* Language Support */
+    html[data-lang="en"] .lang-it {
+      display: none;
+    }
+
+    html[data-lang="it"] .lang-en {
+      display: none;
+    }
   </style>
 </head>
 
@@ -84,25 +93,54 @@
 
   <!-- Compact Sticky Header -->
   <header class="bg-white/95 backdrop-blur-md shadow-sm border-b border-como-100 sticky top-0 z-50">
-    <div class="max-w-3xl mx-auto px-4 py-4 text-center">
-      <p class="text-como-500 font-medium tracking-widest text-[10px] uppercase mb-1">The Wedding of</p>
+    <div class="max-w-3xl mx-auto px-4 py-4 text-center relative">
+      <!-- Language Toggle -->
+      <div class="absolute right-4 top-4 flex gap-2">
+        <button onclick="setLanguage('en')" id="lang-btn-en"
+          class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded transition-colors border">EN</button>
+        <button onclick="setLanguage('it')" id="lang-btn-it"
+          class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded transition-colors border">IT</button>
+      </div>
+
+      <p class="text-como-500 font-medium tracking-widest text-[10px] uppercase mb-1">
+        <span class="lang-en">The Wedding of</span>
+        <span class="lang-it">Il Matrimonio di</span>
+      </p>
       <h1 class="font-serif text-2xl md:text-3xl text-como-800 leading-tight">Federica <span
           class="text-como-400 italic">&amp;</span> Max</h1>
 
       <!-- Navigation Tabs -->
       <nav class="flex flex-wrap justify-center gap-2 mt-3">
         <button onclick="switchTab('venue')" id="tab-venue"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Venue</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Venue</span>
+          <span class="lang-it">Luogo</span>
+        </button>
         <button onclick="switchTab('schedule')" id="tab-schedule"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Schedule</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Schedule</span>
+          <span class="lang-it">Programma</span>
+        </button>
         <button onclick="switchTab('parking')" id="tab-parking"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Parking</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Parking</span>
+          <span class="lang-it">Parcheggio</span>
+        </button>
         <button onclick="switchTab('hotels')" id="tab-hotels"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Hotels</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Hotels</span>
+          <span class="lang-it">Hotel</span>
+        </button>
         <button onclick="switchTab('airports')" id="tab-airports"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">Airports</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">Airports</span>
+          <span class="lang-it">Aeroporti</span>
+        </button>
         <button onclick="switchTab('faq')" id="tab-faq"
-          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">FAQ</button>
+          class="nav-btn px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200">
+          <span class="lang-en">FAQ</span>
+          <span class="lang-it">FAQ</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -138,9 +176,15 @@
         </p>
 
         <div class="bg-como-50 border-l-4 border-como-400 p-4 mb-6 rounded-r-lg">
-          <h3 class="font-bold text-como-800 text-sm mb-1">Important Arrival Info</h3>
-          <p class="text-como-600 text-sm">Please allow extra time for traffic. Try to arrive in central Como
-            <strong>45–60 minutes before 3:00 PM</strong>.
+          <h3 class="font-bold text-como-800 text-sm mb-1">
+            <span class="lang-en">Important Arrival Info</span>
+            <span class="lang-it">Info Importanti sull'Arrivo</span>
+          </h3>
+          <p class="text-como-600 text-sm">
+            <span class="lang-en">Please allow extra time for traffic. Try to arrive in central Como <strong>45–60
+                minutes before 3:00 PM</strong>.</span>
+            <span class="lang-it">Si prega di considerare il traffico. Cercate di arrivare nel centro di Como
+              <strong>45-60 minuti prima delle 15:00</strong>.</span>
           </p>
         </div>
 
@@ -162,7 +206,10 @@
     <!-- SCHEDULE TAB -->
     <div id="view-schedule" class="tab-content hidden animate-fade-in space-y-6">
       <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-como-100">
-        <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-8 text-center italic">Wedding Schedule</h2>
+        <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-8 text-center italic">
+          <span class="lang-en">Wedding Schedule</span>
+          <span class="lang-it">Programma del Matrimonio</span>
+        </h2>
 
         <div
           class="relative space-y-12 before:absolute before:inset-y-0 before:left-4 md:before:left-1/2 before:w-0.5 before:bg-como-100 pb-8">
@@ -180,8 +227,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-12">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">3:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Arrival</h3>
-              <p class="text-como-500 text-sm mt-1">Welcome and welcome drinks</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Arrival</span>
+                <span class="lang-it">Arrivo</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Welcome and welcome drinks</span>
+                <span class="lang-it">Drink di benvenuto</span>
+              </p>
             </div>
           </div>
 
@@ -194,8 +247,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 md:text-right order-2 md:order-1">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">4:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Ceremony</h3>
-              <p class="text-como-500 text-sm mt-1">Exchange of vows</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Ceremony</span>
+                <span class="lang-it">Cerimonia</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Exchange of vows</span>
+                <span class="lang-it">Scambio delle promesse</span>
+              </p>
             </div>
 
             <div class="hidden md:flex w-5/12 justify-start text-left pl-12 order-1 md:order-2">
@@ -216,8 +275,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-12">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">5:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Group Photo</h3>
-              <p class="text-como-500 text-sm mt-1">Creating memories together</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Group Photo</span>
+                <span class="lang-it">Foto di Gruppo</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Creating memories together</span>
+                <span class="lang-it">Creare ricordi insieme</span>
+              </p>
             </div>
           </div>
 
@@ -230,8 +295,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 md:text-right order-2 md:order-1">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">5:30
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Aperitivo</h3>
-              <p class="text-como-500 text-sm mt-1">Drinks and hors d'oeuvres</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Aperitivo</span>
+                <span class="lang-it">Aperitivo</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Drinks and hors d'oeuvres</span>
+                <span class="lang-it">Drink e stuzzichini</span>
+              </p>
             </div>
 
             <div class="hidden md:flex w-5/12 justify-start text-left pl-12 order-1 md:order-2">
@@ -252,8 +323,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-12">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">6:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Dinner</h3>
-              <p class="text-como-500 text-sm mt-1">A celebration of flavors</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Dinner</span>
+                <span class="lang-it">Cena</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">A celebration of flavors</span>
+                <span class="lang-it">Una celebrazione di sapori</span>
+              </p>
             </div>
           </div>
 
@@ -266,8 +343,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 md:text-right order-2 md:order-1">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">8:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Speeches <span class="text-como-300">&amp;</span> Cake</h3>
-              <p class="text-como-500 text-sm mt-1">Toasts and sweetness</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Speeches <span class="text-como-300">&amp;</span> Cake</span>
+                <span class="lang-it">Discorsi <span class="text-como-300">&amp;</span> Torta</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Toasts and sweetness</span>
+                <span class="lang-it">Brindisi e dolcezza</span>
+              </p>
             </div>
 
             <div class="hidden md:flex w-5/12 justify-start text-left pl-12 order-1 md:order-2">
@@ -288,8 +371,14 @@
             <div class="w-full md:w-5/12 pl-12 md:pl-12">
               <span class="md:hidden block text-como-400 font-bold uppercase tracking-widest text-[10px] mb-1">10:00
                 PM</span>
-              <h3 class="text-xl font-serif text-como-800">Dancing</h3>
-              <p class="text-como-500 text-sm mt-1">Celebration continues</p>
+              <h3 class="text-xl font-serif text-como-800">
+                <span class="lang-en">Dancing</span>
+                <span class="lang-it">Balli</span>
+              </h3>
+              <p class="text-como-500 text-sm mt-1">
+                <span class="lang-en">Celebration continues</span>
+                <span class="lang-it">La festa continua</span>
+              </p>
             </div>
           </div>
         </div>
@@ -300,12 +389,19 @@
     <div id="view-parking" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-2xl shadow-sm border border-como-100 overflow-hidden">
         <div class="p-5 bg-como-50 border-b border-como-100">
-          <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-2">Parking for Guests Arriving by Car</h2>
+          <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-2">
+            <span class="lang-en">Parking for Guests Arriving by Car</span>
+            <span class="lang-it">Parcheggio per gli ospiti in auto</span>
+          </h2>
           <p class="text-como-700 text-sm">
-            For guests arriving with their own transportation, here are a few <strong>paid parking areas in
-              Como</strong> where you can leave your car and then <strong>walk or take a bus</strong> to reach
-            <strong>Como Yacht Club</strong>.
-            Please note: <strong>unfortunately, there is no free parking in the area</strong>.
+            <span class="lang-en">For guests arriving with their own transportation, here are a few <strong>paid parking
+                areas in Como</strong> where you can leave your car and then <strong>walk or take a bus</strong> to
+              reach <strong>Como Yacht Club</strong>. Please note: <strong>unfortunately, there is no free parking in
+                the area</strong>.</span>
+            <span class="lang-it">Per gli ospiti che arrivano con i propri mezzi, ecco alcune <strong>aree di parcheggio
+                a pagamento a Como</strong> dove potete lasciare l'auto e poi <strong>camminare o prendere un
+                autobus</strong> per raggiungere il <strong>Como Yacht Club</strong>. Nota bene: <strong>purtroppo non
+                ci sono parcheggi gratuiti in zona</strong>.</span>
           </p>
         </div>
 
@@ -315,14 +411,21 @@
             <div class="flex justify-between items-start mb-1">
               <h4 class="font-bold text-como-800">Parcheggio Lungolago</h4>
               <span
-                class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">2
-                min walk</span>
+                class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">
+                <span class="lang-en">2 min walk</span>
+                <span class="lang-it">2 min a piedi</span>
+              </span>
             </div>
-            <p class="text-sm text-como-600">Easiest option. Walk directly to the venue.</p>
+            <p class="text-sm text-como-600">
+              <span class="lang-en">Easiest option. Walk directly to the venue.</span>
+              <span class="lang-it">L'opzione più semplice. Camminate direttamente verso il luogo.</span>
+            </p>
             <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4"
               target="_blank"
-              class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map
-              &rarr;</a>
+              class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">
+              <span class="lang-en">View Map &rarr;</span>
+              <span class="lang-it">Vedi Mappa &rarr;</span>
+            </a>
           </div>
 
           <!-- P2 -->
@@ -330,14 +433,21 @@
             <div class="flex justify-between items-start mb-1">
               <h4 class="font-bold text-como-800">Centro Lago</h4>
               <span
-                class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">7
-                min walk</span>
+                class="text-[10px] font-bold uppercase tracking-wider bg-como-100 text-como-800 px-2 py-1 rounded border border-como-200">
+                <span class="lang-en">7 min walk</span>
+                <span class="lang-it">7 min a piedi</span>
+              </span>
             </div>
-            <p class="text-sm text-como-600">Short walk along the lake. Or Bus N1 from Cavour.</p>
+            <p class="text-sm text-como-600">
+              <span class="lang-en">Short walk along the lake. Or Bus N1 from Cavour.</span>
+              <span class="lang-it">Breve passeggiata lungo il lago. Oppure Bus N1 da Cavour.</span>
+            </p>
             <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb"
               target="_blank"
-              class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">View Map
-              &rarr;</a>
+              class="block mt-2 text-xs font-bold text-como-500 uppercase tracking-wide hover:text-como-800">
+              <span class="lang-en">View Map &rarr;</span>
+              <span class="lang-it">Vedi Mappa &rarr;</span>
+            </a>
           </div>
 
           <!-- P3 -->
@@ -345,10 +455,15 @@
             <div class="flex justify-between items-start mb-1">
               <h4 class="font-bold text-como-800">Como Central</h4>
               <span
-                class="text-[10px] font-bold uppercase tracking-wider bg-white border border-como-200 text-como-600 px-2 py-1 rounded">15
-                min walk</span>
+                class="text-[10px] font-bold uppercase tracking-wider bg-white border border-como-200 text-como-600 px-2 py-1 rounded">
+                <span class="lang-en">15 min walk</span>
+                <span class="lang-it">15 min a piedi</span>
+              </span>
             </div>
-            <p class="text-sm text-como-600">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</p>
+            <p class="text-sm text-como-600">
+              <span class="lang-en">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</span>
+              <span class="lang-it">Bus N1 da <em>S. Rocchetto</em> a <em>Villa Olmo</em>.</span>
+            </p>
 
             <!-- Bus details (Como Central) -->
             <div class="mt-3 bg-white/70 border border-como-100 rounded-xl p-4">
@@ -369,34 +484,71 @@
 
               <div class="text-sm text-como-700 leading-relaxed space-y-2">
                 <div>
-                  <p class="font-semibold text-como-800">Walk to the bus stop</p>
-                  <p>Bus stop: <strong>Como – S. Rocchetto</strong></p>
+                  <p class="font-semibold text-como-800">
+                    <span class="lang-en">Walk to the bus stop</span>
+                    <span class="lang-it">Camminate verso la fermata</span>
+                  </p>
+                  <p>
+                    <span class="lang-en">Bus stop: <strong>Como – S. Rocchetto</strong></span>
+                    <span class="lang-it">Fermata: <strong>Como – S. Rocchetto</strong></span>
+                  </p>
                 </div>
 
                 <div>
-                  <p class="font-semibold text-como-800">To Como Yacht Club</p>
+                  <p class="font-semibold text-como-800">
+                    <span class="lang-en">To Como Yacht Club</span>
+                    <span class="lang-it">Verso il Como Yacht Club</span>
+                  </p>
                   <ol class="list-decimal ml-5 space-y-1">
-                    <li>From <strong>Como – S. Rocchetto</strong>, take <strong>ASF Autolinee Linea N1</strong> toward
-                      the lakefront.</li>
-                    <li>Get off at <strong>Como – Villa Olmo</strong>, then walk a few minutes along the lake to
-                      <strong>Como Yacht Club</strong>.
+                    <li>
+                      <span class="lang-en">From <strong>Como – S. Rocchetto</strong>, take <strong>ASF Autolinee Linea
+                          N1</strong> toward the lakefront.</span>
+                      <span class="lang-it">Da <strong>Como – S. Rocchetto</strong>, prendete <strong>ASF Autolinee
+                          Linea N1</strong> verso il lungolago.</span>
+                    </li>
+                    <li>
+                      <span class="lang-en">Get off at <strong>Como – Villa Olmo</strong>, then walk a few minutes along
+                        the lake to <strong>Como Yacht Club</strong>.</span>
+                      <span class="lang-it">Scendete a <strong>Como – Villa Olmo</strong>, poi camminate qualche minuto
+                        lungo il lago fino al <strong>Como Yacht Club</strong>.</span>
                     </li>
                   </ol>
                 </div>
 
                 <div>
-                  <p class="font-semibold text-como-800">Back to Como Central</p>
+                  <p class="font-semibold text-como-800">
+                    <span class="lang-en">Back to Como Central</span>
+                    <span class="lang-it">Ritorno a Como Central</span>
+                  </p>
                   <ol class="list-decimal ml-5 space-y-1">
-                    <li>Return to the <strong>Como – Villa Olmo</strong> bus stop.</li>
-                    <li>Take <strong>Linea N1</strong> back toward the centre.</li>
-                    <li>Get off at <strong>Como – S. Rocchetto</strong>, then walk back to the parking.</li>
+                    <li>
+                      <span class="lang-en">Return to the <strong>Como – Villa Olmo</strong> bus stop.</span>
+                      <span class="lang-it">Tornate alla fermata <strong>Como – Villa Olmo</strong>.</span>
+                    </li>
+                    <li>
+                      <span class="lang-en">Take <strong>Linea N1</strong> back toward the centre.</span>
+                      <span class="lang-it">Prendete la <strong>Linea N1</strong> verso il centro.</span>
+                    </li>
+                    <li>
+                      <span class="lang-en">Get off at <strong>Como – S. Rocchetto</strong>, then walk back to the
+                        parking.</span>
+                      <span class="lang-it">Scendete a <strong>Como – S. Rocchetto</strong>, poi tornate al parcheggio a
+                        piedi.</span>
+                    </li>
                   </ol>
                 </div>
 
                 <div class="pt-2 border-t border-como-100">
-                  <p class="font-semibold text-como-800">Saturday night (last bus)</p>
-                  <p class="text-como-600">Latest Saturday reference shown (winter service <strong>12/09/2025 →
-                      08/06/2026</strong>):</p>
+                  <p class="font-semibold text-como-800">
+                    <span class="lang-en">Saturday night (last bus)</span>
+                    <span class="lang-it">Sabato sera (ultimo bus)</span>
+                  </p>
+                  <p class="text-como-600">
+                    <span class="lang-en">Latest Saturday reference shown (winter service <strong>12/09/2025 →
+                        08/06/2026</strong>):</span>
+                    <span class="lang-it">Ultimo riferimento di sabato (servizio invernale <strong>12/09/2025 →
+                        08/06/2026</strong>):</span>
+                  </p>
                   <p class="text-como-700"><strong>23:41</strong> <span class="text-como-300">from</span> <strong>Como –
                       Villa Olmo</strong> <span class="text-como-300">→</span> <strong>23:46</strong> <strong>S.
                       Rocchetto</strong></p>
@@ -479,12 +631,21 @@
             </svg>
           </div>
           <div>
-            <h3 class="font-bold text-como-800 text-sm mb-1">Important note about buses</h3>
+            <h3 class="font-bold text-como-800 text-sm mb-1">
+              <span class="lang-en">Important note about buses</span>
+              <span class="lang-it">Nota importante sugli autobus</span>
+            </h3>
             <p class="text-como-600 text-sm leading-relaxed">
-              Bus services can change due to events or temporary diversions. We recommend re-checking <strong>Linea
-                N1</strong> on the official <a class="font-bold text-como-500 hover:text-como-800"
-                href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
-                target="_blank" rel="noopener noreferrer">ASF Autolinee</a> site before leaving.
+              <span class="lang-en">Bus services can change due to events or temporary diversions. We recommend
+                re-checking <strong>Linea N1</strong> on the official <a
+                  class="font-bold text-como-500 hover:text-como-800"
+                  href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
+                  target="_blank" rel="noopener noreferrer">ASF Autolinee</a> site before leaving.</span>
+              <span class="lang-it">I servizi degli autobus possono variare a causa di eventi o deviazioni temporanee.
+                Vi consigliamo di ricontrollare la <strong>Linea N1</strong> sul sito ufficiale di <a
+                  class="font-bold text-como-500 hover:text-como-800"
+                  href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
+                  target="_blank" rel="noopener noreferrer">ASF Autolinee</a> prima di partire.</span>
             </p>
           </div>
         </div>
@@ -500,28 +661,42 @@
     <div id="view-hotels" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-2xl shadow-sm border border-como-100 p-6">
         <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-6 flex items-center gap-2">
-          <span>🛎️</span> Accommodation
+          <span>🛎️</span>
+          <span class="lang-en">Accommodation</span>
+          <span class="lang-it">Alloggi</span>
         </h2>
         <div class="space-y-6">
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Palace Hotel Como</strong>
             <span class="text-sm text-como-500 block">Lungo Lario Trieste, 16</span>
-            <span class="text-xs text-como-400 italic">Near lakefront & venue</span>
+            <span class="text-xs text-como-400 italic">
+              <span class="lang-en">Near lakefront & venue</span>
+              <span class="lang-it">Vicino al lungolago e alla location</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Hotel Metropole Suisse</strong>
             <span class="text-sm text-como-500 block">Piazza Cavour, 19</span>
-            <span class="text-xs text-como-400 italic">Central location</span>
+            <span class="text-xs text-como-400 italic">
+              <span class="lang-en">Central location</span>
+              <span class="lang-it">Posizione centrale</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Hilton Lake Como</strong>
             <span class="text-sm text-como-500 block">Via Borgo Vico, 241</span>
-            <span class="text-xs text-como-400 italic">Modern option</span>
+            <span class="text-xs text-como-400 italic">
+              <span class="lang-en">Modern option</span>
+              <span class="lang-it">Opzione moderna</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">B&amp;B Hotel Como City Center</strong>
             <span class="text-sm text-como-500 block">Viale Innocenzo XI, 15</span>
-            <span class="text-xs text-como-400 italic">Practical choice</span>
+            <span class="text-xs text-como-400 italic">
+              <span class="lang-en">Practical choice</span>
+              <span class="lang-it">Scelta pratica</span>
+            </span>
           </div>
         </div>
       </div>
@@ -535,28 +710,44 @@
     <div id="view-airports" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-2xl shadow-sm border border-como-100 p-6">
         <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-6 flex items-center gap-2">
-          <span>✈️</span> Nearby Airports
+          <span>✈️</span>
+          <span class="lang-en">Nearby Airports</span>
+          <span class="lang-it">Aeroporti Vicini</span>
         </h2>
         <div class="space-y-6">
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <div class="flex justify-between items-center mb-1">
               <strong class="text-lg text-como-800">Milan Malpensa (MXP)</strong>
-              <span class="text-[10px] font-bold uppercase bg-como-600 text-white px-2 py-0.5 rounded">Best
-                Choice</span>
+              <span class="text-[10px] font-bold uppercase bg-como-600 text-white px-2 py-0.5 rounded">
+                <span class="lang-en">Best Choice</span>
+                <span class="lang-it">Scelta Migliore</span>
+              </span>
             </div>
-            <span class="text-sm text-como-500">Major international hub, ~45 mins away.</span>
+            <span class="text-sm text-como-500">
+              <span class="lang-en">Major international hub, ~45 mins away.</span>
+              <span class="lang-it">Principale hub internazionale, a circa 45 minuti.</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Milan Linate (LIN)</strong>
-            <span class="text-sm text-como-500">Closest to Milan center, ~1 hour away.</span>
+            <span class="text-sm text-como-500">
+              <span class="lang-en">Closest to Milan center, ~1 hour away.</span>
+              <span class="lang-it">Il più vicino al centro di Milano, a circa 1 ora.</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Milan Bergamo (BGY)</strong>
-            <span class="text-sm text-como-500">Good for low-cost flights (Ryanair), ~1 hr 15 mins.</span>
+            <span class="text-sm text-como-500">
+              <span class="lang-en">Good for low-cost flights (Ryanair), ~1 hr 15 mins.</span>
+              <span class="lang-it">Ottimo per voli low-cost (Ryanair), a circa 1h 15 min.</span>
+            </span>
           </div>
           <div class="pb-4 border-b border-como-50 last:border-0 last:pb-0">
             <strong class="block text-lg text-como-800 mb-1">Lugano Airport (LUG)</strong>
-            <span class="text-sm text-como-500">Closest Swiss option, ~40 mins away.</span>
+            <span class="text-sm text-como-500">
+              <span class="lang-en">Closest Swiss option, ~40 mins away.</span>
+              <span class="lang-it">L'opzione svizzera più vicina, a circa 40 minuti.</span>
+            </span>
           </div>
         </div>
       </div>
@@ -570,29 +761,46 @@
     <div id="view-faq" class="tab-content hidden animate-fade-in space-y-6">
       <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-como-100">
         <h2 class="font-serif text-xl md:text-2xl text-como-800 mb-8 flex items-center gap-2">
-          <span>🤔</span> Frequently Asked Questions
+          <span>🤔</span>
+          <span class="lang-en">Frequently Asked Questions</span>
+          <span class="lang-it">Domande Frequenti</span>
         </h2>
 
         <div class="space-y-6">
           <div class="group">
-            <h3 class="font-bold text-como-800 text-lg mb-2">Are children invited to the wedding?</h3>
-            <p class="text-como-600 leading-relaxed">Of course! We look forward to celebrating with your whole family.
+            <h3 class="font-bold text-como-800 text-lg mb-2">
+              <span class="lang-en">Are children invited to the wedding?</span>
+              <span class="lang-it">I bambini sono invitati al matrimonio?</span>
+            </h3>
+            <p class="text-como-600 leading-relaxed">
+              <span class="lang-en">Of course! We look forward to celebrating with your whole family.</span>
+              <span class="lang-it">Certamente! Non vediamo l'ora di festeggiare con tutta la vostra famiglia.</span>
             </p>
           </div>
 
           <div class="group pt-6 border-t border-como-50">
-            <h3 class="font-bold text-como-800 text-lg mb-2">How do we RSVP?</h3>
+            <h3 class="font-bold text-como-800 text-lg mb-2">
+              <span class="lang-en">How do we RSVP?</span>
+              <span class="lang-it">Come facciamo per l'RSVP?</span>
+            </h3>
             <p class="text-como-600 leading-relaxed">
-              Please RSVP to Max's email: <a href="mailto:tsalxam@gmail.com"
+              <span class="lang-en">Please RSVP to Max's email:</span>
+              <span class="lang-it">Per favore inviate l'RSVP all'email di Max:</span>
+              <a href="mailto:tsalxam@gmail.com"
                 class="text-como-500 hover:text-como-800 font-semibold underline decoration-como-100 underline-offset-4">tsalxam@gmail.com</a>
             </p>
           </div>
 
           <div class="group pt-6 border-t border-como-50">
-            <h3 class="font-bold text-como-800 text-lg mb-2">Are the wedding ceremony and the reception at the same
-              venue?</h3>
-            <p class="text-como-600 leading-relaxed">Yes, both the ceremony and reception are at the Yacht Club in Lake
-              Como.</p>
+            <h3 class="font-bold text-como-800 text-lg mb-2">
+              <span class="lang-en">Are the wedding ceremony and the reception at the same venue?</span>
+              <span class="lang-it">Cerimonia e ricevimento sono nello stesso luogo?</span>
+            </h3>
+            <p class="text-como-600 leading-relaxed">
+              <span class="lang-en">Yes, both the ceremony and reception are at the Yacht Club in Lake Como.</span>
+              <span class="lang-it">Sì, sia la cerimonia che il ricevimento si terranno presso lo Yacht Club di
+                Como.</span>
+            </p>
           </div>
         </div>
       </div>
@@ -601,7 +809,7 @@
   </main>
 
   <footer class="mt-auto text-center py-8 px-4 border-t border-como-100 text-como-400 text-xs">
-    <p>Federica & Max · May 23, 2026</p>
+    <p>Federica & Max · <span class="lang-en">May 23, 2026</span><span class="lang-it">23 Maggio 2026</span></p>
   </footer>
 
   <!-- Tab Switching Logic -->
@@ -638,9 +846,32 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Initialize default tab (Venue)
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      localStorage.setItem('preferred-lang', lang);
+
+      // Update button styles
+      const buttons = {
+        en: document.getElementById('lang-btn-en'),
+        it: document.getElementById('lang-btn-it')
+      };
+
+      Object.keys(buttons).forEach(l => {
+        if (l === lang) {
+          buttons[l].classList.remove('text-como-400', 'border-transparent');
+          buttons[l].classList.add('text-como-800', 'border-como-200', 'bg-white', 'shadow-sm');
+        } else {
+          buttons[l].classList.remove('text-como-800', 'border-como-200', 'bg-white', 'shadow-sm');
+          buttons[l].classList.add('text-como-400', 'border-transparent');
+        }
+      });
+    }
+
+    // Initialize default tab and language
     document.addEventListener('DOMContentLoaded', () => {
       switchTab('venue');
+      const savedLang = localStorage.getItem('preferred-lang') || 'en';
+      setLanguage(savedLang);
     });
   </script>
 </body>
