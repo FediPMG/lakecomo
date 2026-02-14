@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,398 +8,292 @@
       name="description"
       content="Mobile-friendly travel guide for Federica and Max's wedding in Como, with venue, parking, hotels, and airport maps."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- Fonts: Playfair Display for elegance, Inter for readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN for standalone simplicity) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              como: {
+                50: '#f2f7f4',
+                100: '#e1ede6',
+                200: '#c5dccf',
+                300: '#9dbfae',
+                400: '#749f8a',
+                500: '#52826c', /* Primary Green */
+                600: '#3e6654',
+                700: '#335244',
+                800: '#2b4238',
+                900: '#24372f',
+              },
+              cream: '#faf9f6',
+            }
+          }
+        }
+      }
+    </script>
+
     <style>
-      :root {
-        --bg: #f5f9f6;
-        --card: #ffffff;
-        --text: #15251c;
-        --muted: #516559;
-        --sage: #6e8877;
-        --sage-dark: #3f5849;
-        --sage-soft: #edf3ee;
-        --border: #d7e3db;
-        --shadow: 0 10px 26px rgba(34, 53, 43, 0.08);
+      /* Custom Scrollbar for a premium feel */
+      ::-webkit-scrollbar {
+        width: 8px;
       }
-
-      * {
-        box-sizing: border-box;
+      ::-webkit-scrollbar-track {
+        background: #f2f7f4;
       }
-
-      body {
-        margin: 0;
-        color: var(--text);
-        background: linear-gradient(180deg, #edf4ef 0%, var(--bg) 35%, #f8fcf9 100%);
-        font-family: "Avenir Next", Avenir, "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        line-height: 1.45;
+      ::-webkit-scrollbar-thumb {
+        background: #9dbfae;
+        border-radius: 4px;
       }
-
-      .page {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 0.9rem;
+      ::-webkit-scrollbar-thumb:hover {
+        background: #749f8a;
       }
-
-      .hero,
-      .section-card,
-      .info-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        box-shadow: var(--shadow);
-      }
-
-      .hero-map,
-      .section-map {
+      
+      .map-container iframe {
         width: 100%;
-        border-radius: 14px;
-        border: 1px solid #d4e1d8;
-      }
-
-      .hero-map {
-        height: 360px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-
-      .hero-body {
-        padding: 1rem;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 1.55rem;
-        color: #1d3026;
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 1.18rem;
-        color: #1d3026;
-      }
-
-      h3 {
-        margin: 0;
-        font-size: 1rem;
-      }
-
-      .sub {
-        color: var(--muted);
-        margin: 0.35rem 0 0;
-      }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        margin-top: 0.75rem;
-      }
-
-      .chip {
-        background: var(--sage-soft);
-        border: 1px solid #cddccf;
-        color: var(--sage-dark);
-        font-weight: 600;
-        border-radius: 999px;
-        padding: 0.36rem 0.72rem;
-        font-size: 0.86rem;
-      }
-
-      .info-grid {
-        margin-top: 0.8rem;
-        display: grid;
-        gap: 0.7rem;
-      }
-
-      .info-card {
-        padding: 0.95rem;
-      }
-
-      ul {
-        margin: 0.45rem 0 0;
-        padding-left: 1.1rem;
-      }
-
-      li + li {
-        margin-top: 0.32rem;
-      }
-
-      .quick-links {
-        margin-top: 0.65rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
-      }
-
-      .btn {
-        border: 1px solid #bfd4c3;
-        background: linear-gradient(135deg, #f6fbf7 0%, #e8f4ec 100%);
-        color: #2a5b42;
-        border-radius: 999px;
-        font-weight: 700;
-        text-decoration: none;
-        text-align: center;
-        font-size: 0.9rem;
-        padding: 0.55rem 0.74rem;
-        box-shadow: 0 4px 12px rgba(58, 93, 73, 0.12);
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 15px rgba(58, 93, 73, 0.16);
-      }
-
-      .stack {
-        margin-top: 0.9rem;
-        display: grid;
-        gap: 0.9rem;
-      }
-
-      .section-card {
-        padding: 0.95rem;
-      }
-
-      .section-head {
-        margin-bottom: 0.55rem;
-      }
-
-      .section-map {
-        height: 280px;
-        margin-top: 0.65rem;
-      }
-
-      .parking-list,
-      .hotel-list,
-      .airport-list {
-        display: grid;
-        gap: 0.45rem;
-        margin-top: 0.45rem;
-      }
-
-      .item {
-        border: 1px solid #d8e5dc;
-        border-radius: 12px;
-        padding: 0.65rem;
-        background: #fbfdfb;
-      }
-
-      .item h4 {
-        margin: 0;
-        font-size: 0.97rem;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      .item p {
-        margin: 0.38rem 0 0;
-      }
-
-      .item ol {
-        margin: 0.38rem 0 0;
-        padding-left: 1.05rem;
-      }
-
-      a {
-        color: #2f5f45;
-      }
-
-      .foot {
-        text-align: center;
-        color: var(--muted);
-        margin-top: 0.75rem;
-        font-size: 0.88rem;
-      }
-
-      @media (min-width: 760px) {
-        .page {
-          padding: 1rem;
-        }
-
-        h1 {
-          font-size: 1.85rem;
-        }
-
-        .hero-map {
-          height: 430px;
-        }
-
-        .info-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .quick-links {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .section-map {
-          height: 340px;
-        }
+        height: 100%;
+        border: 0;
       }
     </style>
   </head>
-  <body>
-    <main class="page">
-      <section class="hero">
-        <iframe
-          title="Map centered on wedding venue"
-          class="hero-map"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia&z=17&output=embed"
-        ></iframe>
-        <div class="hero-body">
-          <h1>Federica &amp; Max Wedding Guide</h1>
-          <p class="sub">At-a-glance information for travel, parking, accommodation, and airport options.</p>
-          <div class="chips">
-            <span class="chip">Saturday 23 May 2026</span>
-            <span class="chip">Arrival from 3:00 PM</span>
-            <span class="chip">Yacht Club Como</span>
+  <body class="bg-como-50 text-como-900 font-sans antialiased selection:bg-como-200 selection:text-como-900">
+
+    <!-- Header / Hero Section -->
+    <header class="relative bg-white pt-12 pb-16 px-6 text-center shadow-sm border-b border-como-100">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <p class="text-como-500 font-medium tracking-widest text-sm uppercase">The Wedding of</p>
+        <h1 class="font-serif text-5xl md:text-6xl text-como-800">Federica <span class="text-como-400 italic">&amp;</span> Max</h1>
+        <div class="flex flex-wrap justify-center gap-3 mt-6 text-como-700 font-medium">
+          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">May 23, 2026</span>
+          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">3:00 PM</span>
+          <span class="px-4 py-1 bg-como-50 rounded-full border border-como-200">Como, Italy</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+
+      <!-- Venue & Main Map Section -->
+      <section class="grid md:grid-cols-2 gap-8 items-start">
+        
+        <!-- Text Info -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-como-100 h-full flex flex-col justify-center">
+          <div class="flex items-center gap-2 text-como-500 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+            <span class="uppercase tracking-wide text-xs font-bold">The Venue</span>
           </div>
+          <h2 class="font-serif text-3xl text-como-800 mb-4">Yacht Club Como</h2>
+          <p class="text-como-600 mb-6 leading-relaxed">
+            Viale Giancarlo Puecher, 8<br>
+            22100 Como CO, Italia
+          </p>
+          
+          <div class="bg-orange-50 border-l-4 border-orange-200 p-4 mb-8 rounded-r-lg">
+            <h3 class="font-bold text-orange-900 text-sm mb-1">Important Arrival Info</h3>
+            <p class="text-orange-800 text-sm">Please allow extra time for traffic. Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a href="https://maps.google.com/?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer" 
+               class="flex-1 inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-como-600 hover:bg-como-700 transition shadow-lg shadow-como-200/50">
+               Open Google Maps
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer"
+               class="flex-1 inline-flex justify-center items-center px-6 py-3 border border-como-200 text-base font-medium rounded-xl text-como-700 bg-white hover:bg-como-50 transition">
+               Get Directions
+            </a>
+          </div>
+        </div>
+
+        <!-- Map Embed -->
+        <div class="h-80 md:h-full min-h-[320px] rounded-2xl overflow-hidden shadow-md border border-como-200 map-container relative">
+           <iframe
+            title="Map centered on wedding venue"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia&z=17&output=embed"
+          ></iframe>
         </div>
       </section>
 
-      <section class="info-grid">
-        <article class="info-card">
-          <h3>📍 Wedding Venue</h3>
-          <p><strong>Yacht Club Como</strong></p>
-          <p class="sub">Viale Giancarlo Puecher, 8, 22100 Como CO, Italia</p>
-          <div class="quick-links">
-            <a class="btn" href="https://maps.google.com/?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer">🗺️ Open venue in Google Maps</a>
-            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia" target="_blank" rel="noopener noreferrer">🧭 Get directions in Google Maps</a>
-          </div>
-        </article>
+      <!-- Parking Section -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px bg-como-200 flex-1"></div>
+          <h2 class="font-serif text-2xl text-como-800">Parking & Transport</h2>
+          <div class="h-px bg-como-200 flex-1"></div>
+        </div>
 
-        <article class="info-card">
-          <h3>🧭 Important Travel Advice</h3>
-          <ul>
-            <li><strong>Please allow extra time</strong> for traffic and parking in Como.</li>
-            <li>Try to arrive in central Como <strong>45–60 minutes before 3:00 PM</strong>.</li>
-            <li>If using public transport, confirm return times before the ceremony.</li>
-          </ul>
-        </article>
+        <div class="bg-white rounded-2xl shadow-sm border border-como-100 overflow-hidden">
+          <div class="p-6 md:p-8 bg-como-50 border-b border-como-100">
+             <p class="text-como-700 text-sm md:text-base max-w-2xl">
+               There are <strong>no free parking options</strong> near the venue. Below are recommended paid parking lots and the best bus routes to reach the Yacht Club.
+             </p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-como-100">
+            <!-- P1 -->
+            <div class="p-6 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-como-800">Parcheggio Lungolago</h4>
+                <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-1 rounded">2 min walk</span>
+              </div>
+              <p class="text-sm text-como-600 mb-3">Easiest option. Walk directly to the venue.</p>
+              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+            </div>
+
+            <!-- P2 -->
+            <div class="p-6 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-como-800">Centro Lago</h4>
+                <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-1 rounded">7 min walk</span>
+              </div>
+              <p class="text-sm text-como-600 mb-3">Short walk along the lake. Or Bus N1 from Cavour.</p>
+              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+            </div>
+
+            <!-- P3 -->
+            <div class="p-6 hover:bg-como-50 transition">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-como-800">Como Central</h4>
+                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">15 min walk</span>
+              </div>
+              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</p>
+              <a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+            </div>
+
+            <!-- P4 -->
+            <div class="p-6 hover:bg-como-50 transition">
+               <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-como-800">Autosilo Viale Lecco</h4>
+                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">20 min walk</span>
+              </div>
+              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>Cavour</em> to <em>Villa Olmo</em>.</p>
+              <a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+            </div>
+             <!-- P5 -->
+             <div class="p-6 hover:bg-como-50 transition md:col-span-2 lg:col-span-2">
+               <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-como-800">Via A. Auguadri Area</h4>
+                <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2 py-1 rounded">25 min walk</span>
+              </div>
+              <p class="text-sm text-como-600 mb-3">Bus N1 from <em>P.zza Vittoria</em> to <em>Villa Olmo</em>.</p>
+              <a href="https://maps.app.goo.gl/Th8nMCEkvz5P4bcx8" target="_blank" class="text-sm font-medium text-como-600 underline decoration-como-300 hover:text-como-800">View Map &rarr;</a>
+            </div>
+          </div>
+          
+          <!-- Parking Map -->
+          <div class="w-full h-64 bg-slate-100 map-container">
+            <iframe
+              title="Map with parking options"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Parking+near+Yacht+Club+Lake+Como&z=15&output=embed"
+            ></iframe>
+          </div>
+        </div>
+        
+        <div class="mt-4 text-center">
+            <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" class="inline-flex items-center text-sm text-como-500 hover:text-como-800 transition">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              Check official ASF bus timetables
+            </a>
+        </div>
       </section>
 
-      <section class="stack">
-        <article class="section-card">
-          <div class="section-head">
-            <h2>🚗 Recommended Parking Options</h2>
-            <p class="sub">There are no free parking options. We have listed bus routes from each car park to the Yacht Club.</p>
-          </div>
-          <div class="parking-list">
-            <div class="item">
-              <h4>🚶 Parcheggio Lungolago · 2 min walk</h4>
-              <p><a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4?entry=s&sa=X&ved=2ahUKEwjV0_mBndmSAxXTVEEAHckXGaQQ4kB6BAgEEAA&hl=en" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
-              <p><strong>To venue:</strong> easiest on foot.</p>
-              <p><strong>By bus:</strong> use Linea N1 from Como – S. Rocchetto to Como – Villa Olmo if preferred.</p>
+      <!-- Accommodation & Airports Grid -->
+      <section class="grid lg:grid-cols-2 gap-8">
+        
+        <!-- Hotels -->
+        <article class="bg-white rounded-2xl shadow-sm border border-como-100 p-6 md:p-8 flex flex-col">
+          <h2 class="font-serif text-2xl text-como-800 mb-4 flex items-center gap-2">
+            <span>🛎️</span> Accommodation
+          </h2>
+          <div class="space-y-4 mb-6 flex-grow">
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Palace Hotel Como</strong>
+              <span class="text-sm text-como-500">Lungo Lario Trieste, 16 · Near lakefront</span>
             </div>
-
-            <div class="item">
-              <h4>🚶 Parcheggio Centro Lago · 7 min walk</h4>
-              <p><a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb?entry=s&sa=X&ved=2ahUKEwj7lLyandmSAxV_SvEDHT3XODoQ4kB6BAgEEAA&hl=en" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
-              <p><strong>To venue:</strong> easiest on foot.</p>
-              <p><strong>By bus:</strong> use Linea N1 from Como – Cavour to Como – Villa Olmo if preferred.</p>
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Hotel Metropole Suisse</strong>
+              <span class="text-sm text-como-500">Piazza Cavour, 19 · Central</span>
             </div>
-
-            <div class="item">
-              <h4>🚶 Como Central Parking · 15 min walk</h4>
-              <p><a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
-              <p><strong>Bus stop:</strong> Como – S. Rocchetto (Linea N1)</p>
-              <ol>
-                <li><strong>To venue:</strong> N1 from S. Rocchetto → Como – Villa Olmo, then short walk.</li>
-                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → S. Rocchetto.</li>
-              </ol>
-              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:46 S. Rocchetto.</p>
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Hilton Lake Como</strong>
+              <span class="text-sm text-como-500">Via Borgo Vico, 241 · Modern</span>
             </div>
-
-            <div class="item">
-              <h4>🚶 Autosilo Viale Lecco · 20–25 min walk</h4>
-              <p><a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
-              <p><strong>Bus stop:</strong> Como – Cavour (Linea N1)</p>
-              <ol>
-                <li><strong>To venue:</strong> N1 from Cavour → Como – Villa Olmo, then lakeside walk.</li>
-                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → Como – Cavour.</li>
-              </ol>
-              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:50 Como – Cavour.</p>
-            </div>
-
-            <div class="item">
-              <h4>🚶 Via A. Auguadri area · 20–25 min walk</h4>
-              <p><a href="https://maps.app.goo.gl/Th8nMCEkvz5P4bcx8?g_st=ic" target="_blank" rel="noopener noreferrer">🗺️ Open in Google Maps</a></p>
-              <p><strong>Bus stop:</strong> Como – P.zza Vittoria (Linea N1)</p>
-              <ol>
-                <li><strong>To venue:</strong> N1 from P.zza Vittoria → Como – Villa Olmo, then lakeside walk.</li>
-                <li><strong>Back to car park:</strong> N1 from Como – Villa Olmo → P.zza Vittoria.</li>
-              </ol>
-              <p><strong>Saturday night:</strong> 23:41 Villa Olmo → 23:54 P.zza Vittoria.</p>
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">B&amp;B Hotel Como City Center</strong>
+              <span class="text-sm text-como-500">Viale Innocenzo XI, 15 · Practical</span>
             </div>
           </div>
-          <p class="sub">Important: bus services can change due to events or temporary diversions. Please re-check Linea N1 on the <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" rel="noopener noreferrer">official ASF Autolinee timetable</a> before traveling.</p>
-          <iframe
-            title="Map with parking options"
-            class="section-map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Parking+near+Yacht+Club+Lake+Como&z=15&output=embed"
-          ></iframe>
-        </article>
-
-        <article class="section-card">
-          <div class="section-head">
-            <h2>🛎️ Recommended Hotels</h2>
-            <p class="sub">Suggested places in/near Como for convenience.</p>
-          </div>
-          <div class="hotel-list">
-            <div class="item"><strong>Palace Hotel Como</strong><br />Lungo Lario Trieste, 16 · near lakefront and venue area</div>
-            <div class="item"><strong>Hotel Metropole Suisse</strong><br />Piazza Cavour, 19 · central and walkable</div>
-            <div class="item"><strong>Hilton Lake Como</strong><br />Via Borgo Vico, 241 · modern option, short taxi ride</div>
-            <div class="item"><strong>B&amp;B Hotel Como City Center</strong><br />Viale Innocenzo XI, 15 · practical city-center location</div>
-          </div>
-          <iframe
-            title="Map with recommended hotels"
-            class="section-map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Hotels+near+Yacht+Club+Lake+Como&z=14&output=embed"
-          ></iframe>
-        </article>
-
-        <article class="section-card">
-          <div class="section-head">
-            <h2>🚌 Public Transport</h2>
-            <p>Bus routes and timetables: <a href="https://www.asfautolinee.it/find-lines-and-timetables/?lang=en" target="_blank" rel="noopener noreferrer">ASF Autolinee (English)</a></p>
-            <p class="sub">Tip: save a screenshot of your return route before the wedding starts.</p>
+          <div class="h-48 rounded-xl overflow-hidden map-container shadow-inner border border-como-100">
+             <iframe
+              title="Map with recommended hotels"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Hotels+near+Yacht+Club+Lake+Como&z=14&output=embed"
+            ></iframe>
           </div>
         </article>
 
-        <article class="section-card">
-          <div class="section-head">
-            <h2>✈️ Nearby Airports</h2>
-            <p class="sub">Useful airport options for guests flying in.</p>
+        <!-- Airports -->
+        <article class="bg-white rounded-2xl shadow-sm border border-como-100 p-6 md:p-8 flex flex-col">
+          <h2 class="font-serif text-2xl text-como-800 mb-4 flex items-center gap-2">
+            <span>✈️</span> Airports
+          </h2>
+           <div class="space-y-4 mb-6 flex-grow">
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <div class="flex justify-between">
+                <strong class="text-como-800">Milan Malpensa (MXP)</strong>
+                <span class="text-xs bg-como-100 text-como-700 px-2 py-0.5 rounded">Best Option</span>
+              </div>
+              <span class="text-sm text-como-500">Major international hub</span>
+            </div>
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Milan Linate (LIN)</strong>
+              <span class="text-sm text-como-500">Closest to Milan center</span>
+            </div>
+            <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Milan Bergamo (BGY)</strong>
+              <span class="text-sm text-como-500">Good for low-cost flights</span>
+            </div>
+             <div class="pb-3 border-b border-como-50 last:border-0">
+              <strong class="block text-como-800">Lugano Airport (LUG)</strong>
+              <span class="text-sm text-como-500">Closest Swiss option</span>
+            </div>
           </div>
-          <div class="airport-list">
-            <div class="item"><strong>Milan Malpensa (MXP)</strong> · best major option for Como</div>
-            <div class="item"><strong>Milan Linate (LIN)</strong> · central Milan airport</div>
-            <div class="item"><strong>Milan Bergamo (BGY)</strong> · often good low-cost routes</div>
-            <div class="item"><strong>Lugano Airport (LUG)</strong> · closest Swiss option</div>
+          <div class="h-48 rounded-xl overflow-hidden map-container shadow-inner border border-como-100">
+             <iframe
+              title="Map with nearby airports"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"
+            ></iframe>
           </div>
-          <iframe
-            title="Map with nearby airports"
-            class="section-map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"
-          ></iframe>
         </article>
+
       </section>
 
-      <p class="foot">We can’t wait to celebrate with you in Lake Como 🤍</p>
     </main>
+
+    <footer class="text-center py-12 px-4 bg-white border-t border-como-100">
+      <p class="font-serif text-xl italic text-como-600 mb-2">We can’t wait to celebrate with you.</p>
+      <p class="text-sm text-como-400">Lake Como · May 2026</p>
+    </footer>
+
   </body>
 </html>
