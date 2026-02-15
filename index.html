@@ -171,19 +171,22 @@
     .nav-btn.active,
     .nav-btn.active:hover,
     .nav-btn.active:focus-visible {
-      background-color: #7D8E73;
-      color: white;
+      background-color: #7D8E73 !important;
+      color: white !important;
       box-shadow: 0 4px 12px rgba(125, 142, 115, 0.2);
     }
 
     .sub-nav-btn {
       -webkit-tap-highlight-color: transparent;
       transition: all 0.3s ease;
+      color: #7D8E73;
     }
 
-    .sub-nav-btn.active {
-      background-color: #7D8E73;
-      color: white;
+    .sub-nav-btn.active,
+    .sub-nav-btn.active:hover,
+    .sub-nav-btn.active:focus-visible {
+      background-color: #7D8E73 !important;
+      color: white !important;
       box-shadow: 0 2px 8px rgba(125, 142, 115, 0.15);
     }
 
@@ -1566,7 +1569,7 @@
       // 3. Update button styles
       const buttons = document.querySelectorAll('.nav-btn');
       buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-sage-500', 'text-white', 'shadow-lg');
+        btn.classList.remove('active');
       });
 
       // Set active style
@@ -1606,14 +1609,13 @@
       // 3. Update button styles
       const buttons = document.querySelectorAll('.sub-nav-btn');
       buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-sage-500', 'text-white', 'shadow-md');
+        btn.classList.remove('active');
       });
 
       // Set active style
       const activeBtn = document.getElementById('sub-tab-' + subTabName);
       if (activeBtn) {
         activeBtn.classList.add('active');
-        activeBtn.classList.add('bg-sage-500', 'text-white', 'shadow-md');
       }
 
       // 4. Persistence
