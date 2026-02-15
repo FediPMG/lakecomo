@@ -1237,7 +1237,7 @@
 
   <!-- Tab Switching Logic -->
   <script>
-    function switchTab(tabName) {
+    function switchTab(tabName, savePersistence = true) {
       // 1. Hide all content views
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => {
@@ -1260,6 +1260,11 @@
       const activeBtn = document.getElementById('tab-' + tabName);
       if (activeBtn) {
         activeBtn.classList.add('active');
+      }
+
+      // 4. Persistence
+      if (savePersistence) {
+        localStorage.setItem('active-tab', tabName);
       }
 
       // Scroll to top of main content softly
@@ -1289,7 +1294,9 @@
 
     // Initialize default tab and language
     document.addEventListener('DOMContentLoaded', () => {
-      switchTab('venue');
+      const savedTab = localStorage.getItem('active-tab') || 'venue';
+      switchTab(savedTab, false); // Don't save back during initial load
+
       const savedLang = localStorage.getItem('preferred-lang') || 'en';
       setLanguage(savedLang);
     });
