@@ -1,36 +1,36 @@
 # Accommodation
 
-The wedding is in Lake Como, but we will be staying in Varedo (40 mins away). For the best experience, we recommend staying closer to Como for the Friday & Saturday.
+If you want to keep costs down, avoid central Como prices and stay in nearby areas with simple transport.
 
-## 💡 "Smart Stay" Budget Options
-Standard hotels in Como center can be expensive. These nearby spots offer great value and reliable transport to the venue.
+## Best Budget Bases
 
-### Como Camerlata (The Smartest Choice)
-- **Why:** Only 4 mins away by train and much more affordable.
-- **Late Night Return:** Catch the 00:11 (12:11 AM) train from Como San Giovanni station.
-- **Stay:** [B&B Hotel Como Camerlata](https://www.hotel-bb.com/en/hotel/como-camerlata)
+### Como Camerlata (Best value without a car)
+- **Why:** Usually cheaper than city center and only ~4 minutes by train to Como S. Giovanni.
+- **Late return option:** Around midnight trains are usually available (double-check schedules that week).
+- **Suggested stay:** [B&B Hotel Como Camerlata](https://www.hotel-bb.com/en/hotel/como-camerlata)
 
-### Tavernola (Lakeside Vibes)
-- **Why:** Stay on the lake without the central city price tag.
-- **Late Night Return:** Take the N1 Bus (~00:07 AM) or enjoy a scenic 25-min walk along the lake.
-- **Stay:** Great local B&Bs and Airbnbs in this area.
+### Grandate (Best value if you have a car)
+- **Why:** Affordable rates and easy road access.
+- **Watch out:** Train service can end early, so plan taxi/carpool for the return.
+- **Suggested stay:** [Ibis Como](https://all.accor.com/hotel/5604/index.en.shtml)
 
-### Grandate (Ideal if you have a car)
-- **Why:** Right off the highway and very budget-friendly.
-- **Note:** The last train is early (22:16), so plan for a ~€20 taxi back.
-- **Stay:** [Ibis Como](https://all.accor.com/hotel/5604/index.en.shtml)
-
----
+### Tavernola (Good compromise: lake feel, often cheaper)
+- **Why:** Lakeside atmosphere, often less expensive than central Como.
+- **Return options:** N1 bus or ~25 min walk along the lake.
 
 ## Other Recommendations
-
-### Como Area (Splash out)
+### Como Area
 - [Albergo Firenze Como](https://www.hotelfirenzecomo.com/)
 - [The Convo Lake Como](https://hotels.cloudbeds.com/en/reservation/5DhQ1a?currency=eur)
 
-### Saronno (Midway Point)
+### Saronno
 - [Hotel Cyrano Saronno](https://www.hotelcyranosaronno.com/)
 - [Just Hotel Saronno](https://just-hotel-saronno.h-rez.com/contact.htm)
 
-### Varedo (Near the Couple)
+### Near the couple (Varedo)
 - [AS Hotel Limbiate Fiera](https://www.ashotels.it/en/as-hotel-limbiate-fiera)
+
+## Booking Tips
+- Book cancellable rates now; prices rise closer to the date.
+- Check total price with taxes/fees before paying.
+- Save your late-night return plan before wedding day.
