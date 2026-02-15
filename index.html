@@ -262,6 +262,11 @@
           <span class="lang-en">FAQ</span>
           <span class="lang-it">FAQ</span>
         </button>
+        <button onclick="switchTab('gifts')" id="tab-gifts"
+          class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
+          <span class="lang-en">Gifts</span>
+          <span class="lang-it">Regali</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -1263,6 +1268,93 @@
               <span class="lang-it">Abbiamo previsto opzioni per vegetariani, vegani e persone intolleranti a frutta a
                 guscio e lattosio. Se avete altre allergie specifiche, fatecelo sapere nell'RSVP.</span>
             </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIFTS TAB -->
+    <div id="view-gifts" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="glass-card p-8 md:p-12 rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40">
+        <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight">
+          <span class="text-2xl grayscale opacity-50">🎁</span>
+          <span class="lang-en">Wedding Gifts</span>
+          <span class="lang-it">Regali di Nozze</span>
+        </h2>
+
+        <div class="max-w-3xl">
+          <p class="text-sage-700 text-lg leading-relaxed mb-10">
+            <span class="lang-en">Your presence is the most valuable gift to us, but if you absolutely insist on
+              giving us a gift, we would very much welcome donations towards our honeymoon.</span>
+            <span class="lang-it">La vostra presenza è per noi il dono più prezioso. Se tuttavia desiderate
+              assolutamente farci un regalo, apprezzeremmo molto un contributo per la nostra luna di miele.</span>
+          </p>
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <!-- NatWest Card -->
+            <div class="flex flex-col bg-white/50 rounded-2xl p-6 border border-sage-100 shadow-sm">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-[#5d2a84] flex items-center justify-center text-white font-bold text-xs shadow-inner">
+                  NW</div>
+                <h3 class="font-bold text-sage-800 text-sm uppercase tracking-wider">NatWest Pay</h3>
+              </div>
+              <p class="text-xs text-sage-500 mb-6 leading-relaxed">
+                <span class="lang-en"><strong>Recommended for UK guests.</strong> Fast and secure bank transfer via
+                  NatWest Pay It.</span>
+                <span class="lang-it"><strong>Consigliato per gli ospiti del Regno Unito.</strong> Trasferimento
+                  bancario veloce e sicuro tramite NatWest Pay It.</span>
+              </p>
+              <a href="https://paymentrequest.natwestpayit.com/reusable-links/c4b2870e-642d-4a00-8287-37b04cf01ae4"
+                target="_blank" rel="noopener noreferrer"
+                class="mt-auto flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#5d2a84] text-white font-bold tracking-widest uppercase text-[10px] hover:scale-[1.02] active:scale-95 transition-all shadow-md group">
+                <span class="lang-en">Donate via NatWest</span>
+                <span class="lang-it">Dona via NatWest</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Revolut Card -->
+            <div
+              class="flex flex-col bg-white/50 rounded-2xl p-6 border border-sage-100 shadow-sm relative overflow-hidden">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-[#0075eb] flex items-center justify-center text-white font-bold text-xs shadow-inner">
+                  R</div>
+                <h3 class="font-bold text-sage-800 text-sm uppercase tracking-wider">Revolut</h3>
+              </div>
+              <p class="text-xs text-sage-500 mb-6 leading-relaxed">
+                <span class="lang-en"><strong>Recommended for European guests</strong> to send money in
+                  <strong>Euros</strong>.</span>
+                <span class="lang-it"><strong>Consigliato per gli ospiti europei</strong> per inviare denaro in
+                  <strong>Euro</strong>.</span>
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-6 items-center sm:items-end mt-auto">
+                <a href="https://revolut.me/federizck6" target="_blank" rel="noopener noreferrer"
+                  class="flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#0075eb] text-white font-bold tracking-widest uppercase text-[10px] hover:scale-[1.02] active:scale-95 transition-all shadow-md group">
+                  <span class="lang-en">Donate via Revolut</span>
+                  <span class="lang-it">Dona via Revolut</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+
+                <div class="flex flex-col items-center gap-2 shrink-0">
+                  <div class="bg-white p-2 rounded-lg shadow-sm border border-sage-100 shrink-0">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://revolut.me/federizck6"
+                      alt="Revolut QR Code" class="w-20 h-20 md:w-24 md:h-24 aspect-square block" loading="lazy">
+                  </div>
+                  <span class="text-[9px] font-bold text-sage-400 uppercase tracking-widest">Scan to Pay</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
