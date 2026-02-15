@@ -273,6 +273,14 @@
           <span class="lang-it">Regali</span>
         </button>
       </nav>
+
+      <!-- Subtle Countdown -->
+      <div id="countdown"
+        class="mt-6 text-[9px] font-medium uppercase tracking-[0.3em] text-sage-400 opacity-80 flex items-center justify-center gap-4 animate-fade-in">
+        <div class="flex items-center gap-2">
+          <span id="countdown-timer"></span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1559,6 +1567,11 @@
           buttons[l].classList.add('text-sage-400', 'hover:bg-white/40');
         }
       });
+
+      // Update countdown if visible
+      if (typeof updateCountdown === 'function') {
+        updateCountdown();
+      }
     }
 
     // Initialize default tab and language
@@ -1568,7 +1581,36 @@
 
       const savedLang = localStorage.getItem('preferred-lang') || 'en';
       setLanguage(savedLang);
+
+      // Start Countdown
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
     });
+
+    function updateCountdown() {
+      const targetDate = new Date("May 23, 2026 15:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").style.display = "none";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const timerElement = document.getElementById("countdown-timer");
+      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+
+      if (lang === 'en') {
+        timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        timerElement.innerHTML = `${days}g ${hours}o ${minutes}m ${seconds}s`;
+      }
+    }
   </script>
 </body>
 
