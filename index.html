@@ -252,6 +252,11 @@
           <span class="lang-en">Airports</span>
           <span class="lang-it">Aeroporti</span>
         </button>
+        <button onclick="switchTab('taxi')" id="tab-taxi"
+          class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
+          <span class="lang-en">Taxi</span>
+          <span class="lang-it">Taxi</span>
+        </button>
         <button onclick="switchTab('carpool')" id="tab-carpool"
           class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
           <span class="lang-en">Carpool</span>
@@ -862,8 +867,8 @@
                 <div class="flex items-center gap-2">
                   <span class="text-como-400">🕒</span>
                   <span class="font-medium text-como-700">
-                    <span class="lang-en">Return: 00:11 (12:11 AM) train from San Giovanni</span>
-                    <span class="lang-it">Ritorno: Treno delle 00:11 (12:11 AM) da San Giovanni</span>
+                    <span class="lang-en">Return: 23:20 train from San Giovanni (latest on Saturdays)</span>
+                    <span class="lang-it">Ritorno: Treno delle 23:20 da San Giovanni (ultimo al sabato)</span>
                   </span>
                 </div>
                 <div class="flex items-center gap-2">
@@ -895,10 +900,9 @@
                 <div class="flex items-center gap-2">
                   <span class="text-como-400">🕒</span>
                   <span class="font-medium text-como-700">
-                    <span class="lang-en">Return: Bus N1 (~00:07) or <strong>Flex Urbano</strong> (on-demand until
-                      01:30)</span>
-                    <span class="lang-it">Ritorno: Bus N1 (~00:07) o <strong>Flex Urbano</strong> (su chiamata fino alle
-                      01:30)</span>
+                    <span class="lang-en">Return: Bus N1 (~00:07) or <strong>Flex Urbano</strong> (see Taxi tab)</span>
+                    <span class="lang-it">Ritorno: Bus N1 (~00:07) o <strong>Flex Urbano</strong> (v. scheda
+                      Taxi)</span>
                   </span>
                 </div>
                 <div class="flex items-center gap-2">
@@ -928,8 +932,8 @@
                 <div class="flex items-center gap-2">
                   <span class="text-como-400">🕒</span>
                   <span class="font-medium text-como-400">
-                    <span class="lang-en">Return: Taxi (~€20) required after 22:16</span>
-                    <span class="lang-it">Ritorno: Taxi richiesto (~€20) dopo le 22:16</span>
+                    <span class="lang-en">Return: <strong>Taxi</strong> (~€20) required (see Taxi tab)</span>
+                    <span class="lang-it">Ritorno: <strong>Taxi</strong> richiesto (~€20) (v. scheda Taxi)</span>
                   </span>
                 </div>
                 <div class="flex items-center gap-2">
@@ -1157,6 +1161,134 @@
       <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-como-100">
         <iframe title="Map with nearby airports" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"></iframe>
+      </div>
+    </div>
+
+    <!-- TAXI TAB -->
+    <div id="view-taxi" class="tab-content hidden space-y-6">
+      <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 p-8 md:p-10">
+        <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight">
+          <span class="text-2xl grayscale opacity-50">🚕</span>
+          <span class="lang-en">Local Taxis</span>
+          <span class="lang-it">Taxi Locali</span>
+        </h2>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- Primary Provider -->
+          <div class="bg-white border border-sage-100 rounded-2xl p-6 shadow-sm">
+            <h3 class="font-bold text-sage-800 text-lg mb-2">Radio Taxi Como</h3>
+            <p class="text-sm text-sage-600 mb-6">
+              <span class="lang-en">Official provider, available 24/7.</span>
+              <span class="lang-it">Fornitore ufficiale, disponibile 24/7.</span>
+            </p>
+            <div class="space-y-4">
+              <a href="tel:+39031261515"
+                class="flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-sage-500 text-white font-bold tracking-widest uppercase text-[10px] hover:scale-[1.02] active:scale-95 transition-all shadow-md">
+                <span class="lang-en">Call +39 031 261515</span>
+                <span class="lang-it">Chiama +39 031 261515</span>
+              </a>
+              <a href="https://www.intaxi.it/" target="_blank" rel="noopener noreferrer"
+                class="flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-white border border-sage-100 text-sage-600 font-bold tracking-widest uppercase text-[10px] hover:bg-sage-50 transition-all">
+                <span class="lang-en">App: InTaxi</span>
+                <span class="lang-it">App: InTaxi</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Flex Urbano & Uber -->
+          <div class="space-y-4">
+            <!-- Flex Urbano -->
+            <div class="bg-sage-50/50 border border-sage-100/50 rounded-2xl p-6">
+              <h4 class="font-bold text-sage-800 text-sm uppercase tracking-widest mb-2">
+                <span class="lang-en">Flex Urbano (On-Demand)</span>
+                <span class="lang-it">Flex Urbano (Su Richiesta)</span>
+              </h4>
+              <p class="text-xs text-sage-600 leading-relaxed mb-3">
+                <span class="lang-en">On-demand bus active Fri/Sun until 01:00 AM and <strong>Saturdays until 01:30
+                    AM</strong>.
+                  Bookable via app or call center.</span>
+                <span class="lang-it">Bus a chiamata attivo Ven/Dom fino alle 01:00 e <strong>Sabato fino alle
+                    01:30</strong>.
+                  Prenotabile via app o call center.</span>
+              </p>
+              <div class="flex flex-col gap-2">
+                <a href="https://www.asfautolinee.it/asf-flex-urbano/?lang=en" target="_blank"
+                  class="text-[10px] font-bold text-sage-500 hover:text-sage-800 underline uppercase tracking-widest">
+                  <span class="lang-en">Learn More (English) &rarr;</span>
+                  <span class="lang-it">Scopri di più (Inglese) &rarr;</span>
+                </a>
+                <a href="https://www.asfautolinee.it/asf-flex-urbano/" target="_blank"
+                  class="text-[10px] font-bold text-sage-500 hover:text-sage-800 underline uppercase tracking-widest">
+                  <span class="lang-en">Learn More (Italian) &rarr;</span>
+                  <span class="lang-it">Scopri di più (Italiano) &rarr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Uber -->
+            <div class="bg-white border border-sage-100 rounded-2xl p-6 shadow-sm">
+              <h4 class="font-bold text-sage-800 text-sm uppercase tracking-widest mb-2">Uber Black</h4>
+              <p class="text-xs text-sage-500 leading-relaxed">
+                <span class="lang-en">Luxury cars available via the Uber app. Expect higher rates (starting
+                  €30-€40).</span>
+                <span class="lang-it">Auto di lusso disponibili tramite l'app Uber. Tariffe più elevate (da
+                  €30-€40).</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strategy Box -->
+        <div class="mt-8 bg-cream-50 border-l-4 border-sage-400 p-6 rounded-r-2xl">
+          <h3 class="font-bold text-sage-800 text-xs uppercase tracking-widest mb-2 italic">
+            <span class="lang-en">Strategic Tip</span>
+            <span class="lang-it">Consiglio Strategico</span>
+          </h3>
+          <p class="text-sage-600 text-sm leading-relaxed">
+            <span class="lang-en">After midnight, taxis can be busy. Instead of waiting at the venue, walk to the taxi
+              stands at <strong>Piazza Cavour</strong> or <strong>San Giovanni Station</strong> for a better chance of
+              finding a cab.</span>
+            <span class="lang-it">Dopo mezzanotte, i taxi possono essere molto richiesti. Invece di aspettare al luogo
+              dell'evento, camminate verso i posteggi dei taxi in <strong>Piazza Cavour</strong> o alla <strong>Stazione
+                San Giovanni</strong> per avere più possibilità di trovarne uno.</span>
+          </p>
+        </div>
+
+        <!-- Rates Table -->
+        <div class="mt-8">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-como-500 mb-4 border-b border-como-100 pb-2">
+            <span class="lang-en">Taxi Details & Estimated Night Rates</span>
+            <span class="lang-it">Dettagli Taxi e Tariffe Notturne Stimate</span>
+          </h3>
+          <div class="mb-6 text-xs text-como-600 space-y-1">
+            <p><span class="lang-en"><strong>Night Base Fare:</strong> €7.50</span><span class="lang-it"><strong>Quota
+                  fissa notturna:</strong> €7.50</span></p>
+            <p><span class="lang-en"><strong>Group Surcharge (5-8 pax):</strong> +20%</span><span
+                class="lang-it"><strong>Supplemento gruppi (5-8 persone):</strong> +20%</span></p>
+            <p class="italic text-como-400 font-medium">
+              <span class="lang-en">Groups: call the dispatch center to pre-book.</span>
+              <span class="lang-it">Gruppi: chiamate il centralino per prenotare in anticipo.</span>
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-como-50 shadow-sm text-center">
+              <span class="block text-[10px] text-como-400 font-bold uppercase tracking-tighter">To Tavernola</span>
+              <span class="text-lg font-serif text-como-800">€12–€15</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-como-50 shadow-sm text-center">
+              <span class="block text-[10px] text-como-400 font-bold uppercase tracking-tighter">To Camerlata</span>
+              <span class="text-lg font-serif text-como-800">€15–€18</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-como-50 shadow-sm text-center">
+              <span class="block text-[10px] text-como-400 font-bold uppercase tracking-tighter">To Grandate</span>
+              <span class="text-lg font-serif text-como-800">€20–€25</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-como-50 shadow-sm text-center">
+              <span class="block text-[10px] text-como-400 font-bold uppercase tracking-tighter">To Lipomo</span>
+              <span class="text-lg font-serif text-como-800">€18–€22</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
