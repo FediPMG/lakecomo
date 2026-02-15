@@ -175,6 +175,25 @@
       color: white;
       box-shadow: 0 4px 12px rgba(125, 142, 115, 0.2);
     }
+
+    main a[href]:not([class*="inline-flex"]):not([class*="rounded"]) {
+      color: #2f5f9e;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    main a[href]:not([class*="inline-flex"]):not([class*="rounded"]):hover {
+      color: #1f4472;
+    }
+
+    strong,
+    b {
+      color: inherit;
+      text-decoration: none;
+    }
   </style>
 </head>
 
