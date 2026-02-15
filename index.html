@@ -176,6 +176,17 @@
       box-shadow: 0 4px 12px rgba(125, 142, 115, 0.2);
     }
 
+    .sub-nav-btn {
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .sub-nav-btn.active {
+      background-color: #7D8E73;
+      color: white;
+      box-shadow: 0 2px 8px rgba(125, 142, 115, 0.15);
+    }
+
     main a[href]:not([class*="inline-flex"]):not([class*="rounded"]) {
       color: #2f5f9e;
       text-decoration: underline;
@@ -237,30 +248,15 @@
           <span class="lang-en">Schedule</span>
           <span class="lang-it">Programma</span>
         </button>
-        <button onclick="switchTab('parking')" id="tab-parking"
-          class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
-          <span class="lang-en">Parking</span>
-          <span class="lang-it">Parcheggio</span>
-        </button>
         <button onclick="switchTab('hotels')" id="tab-hotels"
           class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
           <span class="lang-en">Hotels</span>
           <span class="lang-it">Hotel</span>
         </button>
-        <button onclick="switchTab('airports')" id="tab-airports"
+        <button onclick="switchTab('transport')" id="tab-transport"
           class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
-          <span class="lang-en">Airports</span>
-          <span class="lang-it">Aeroporti</span>
-        </button>
-        <button onclick="switchTab('taxi')" id="tab-taxi"
-          class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
-          <span class="lang-en">Taxi</span>
-          <span class="lang-it">Taxi</span>
-        </button>
-        <button onclick="switchTab('carpool')" id="tab-carpool"
-          class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
-          <span class="lang-en">Carpool</span>
-          <span class="lang-it">Passaggi</span>
+          <span class="lang-en">Transport</span>
+          <span class="lang-it">Trasporti</span>
         </button>
         <button onclick="switchTab('faq')" id="tab-faq"
           class="nav-btn px-5 py-2 text-[11px] font-bold uppercase tracking-widest rounded-full transition-all duration-300 border border-transparent hover:bg-sage-50">
@@ -532,305 +528,341 @@
       </div>
     </div>
 
-    <!-- PARKING TAB -->
-    <div id="view-parking" class="tab-content hidden space-y-6">
-      <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 overflow-hidden">
-        <div class="p-8 bg-sage-50/30 border-b border-sage-100/50">
-          <h2 class="font-serif text-2xl md:text-3xl text-sage-800 mb-4 tracking-tight">
-            <span class="lang-en">Parking for Guests Arriving by Car</span>
-            <span class="lang-it">Parcheggio per gli ospiti in auto</span>
-          </h2>
-          <p class="text-sage-700 text-sm leading-relaxed max-w-2xl">
-            <span class="lang-en">For guests arriving with their own transportation, here are a few <strong>paid parking
-                areas in Como</strong> where you can leave your car and then <strong>walk or take a bus</strong> to
-              reach <strong>Como Yacht Club</strong>. Please note: <strong>unfortunately, there is no free parking in
-                the area</strong>.</span>
-            <span class="lang-it">Per gli ospiti che arrivano con i propri mezzi, ecco alcune <strong>aree di parcheggio
-                a pagamento a Como</strong> dove potete lasciare l'auto e poi <strong>camminare o prendere un
-                autobus</strong> per raggiungere il <strong>Como Yacht Club</strong>. Nota bene: <strong>purtroppo non
-                ci sono parcheggi gratuiti in zona</strong>.</span>
-          </p>
-        </div>
-
-        <div class="divide-y divide-sage-100/30">
-          <!-- P1 -->
-          <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
-            <div class="flex justify-between items-start mb-2">
-              <h4 class="font-bold text-sage-800 text-lg">Parcheggio Lungolago</h4>
-              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4"
-                target="_blank"
-                class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
-                <span class="lang-en">View Map &rarr;</span>
-                <span class="lang-it">Vedi Mappa &rarr;</span>
-              </a>
-            </div>
-            <p class="text-sm text-sage-500 font-light">
-              <span class="lang-en">Easiest option. Walk directly to the venue.</span>
-              <span class="lang-it">L'opzione più semplice. Camminate direttamente verso il luogo.</span>
-            </p>
-            <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
-              <span class="lang-en">2 min walk</span>
-              <span class="lang-it">2 min a piedi</span>
-            </p>
-          </div>
-
-          <!-- P2 -->
-          <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
-            <div class="flex justify-between items-start mb-2">
-              <h4 class="font-bold text-sage-800 text-lg">Centro Lago</h4>
-              <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb"
-                target="_blank"
-                class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
-                <span class="lang-en">View Map &rarr;</span>
-                <span class="lang-it">Vedi Mappa &rarr;</span>
-              </a>
-            </div>
-            <p class="text-sm text-sage-500 font-light">
-              <span class="lang-en">Short walk along the lake. Or Bus N1 from Cavour.</span>
-              <span class="lang-it">Breve passeggiata lungo il lago. Oppure Bus N1 da Cavour.</span>
-            </p>
-            <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
-              <span class="lang-en">7 min walk</span>
-              <span class="lang-it">7 min a piedi</span>
-            </p>
-          </div>
-
-          <!-- P3 -->
-          <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
-            <div class="flex justify-between items-start mb-2">
-              <h4 class="font-bold text-sage-800 text-lg">Como Central</h4>
-              <a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6" target="_blank"
-                class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
-                <span class="lang-en">View Map &rarr;</span>
-                <span class="lang-it">Vedi Mappa &rarr;</span>
-              </a>
-            </div>
-            <p class="text-sm text-sage-500 font-light">
-              <span class="lang-en">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</span>
-              <span class="lang-it">Bus N1 da <em>S. Rocchetto</em> a <em>Villa Olmo</em>.</span>
-            </p>
-
-            <!-- Bus details (Como Central) -->
-            <div class="mt-4 bg-white/70 border border-sage-100 rounded-xl p-4">
-              <div class="flex items-center gap-2 text-sage-600 mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 17h2l-1.5 4h-1.5" />
-                  <path d="M3 17h18" />
-                  <path d="M5 17l-1.5 4H2" />
-                  <path d="M4 17V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10" />
-                  <path d="M6 11h12" />
-                  <path d="M6 7h12" />
-                  <circle cx="7.5" cy="17" r="1.5" />
-                  <circle cx="16.5" cy="17" r="1.5" />
-                </svg>
-                <span class="uppercase tracking-wide text-[11px] font-bold">Bus N1 to the Yacht Club</span>
-              </div>
-
-              <div class="text-sm text-sage-700 leading-relaxed space-y-2">
-                <div>
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">Walk to the bus stop</span>
-                    <span class="lang-it">Camminate verso la fermata</span>
-                  </p>
-                  <p>
-                    <span class="lang-en">Bus stop: <strong>Como – S. Rocchetto</strong></span>
-                    <span class="lang-it">Fermata: <strong>Como – S. Rocchetto</strong></span>
-                  </p>
-                </div>
-
-                <div>
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">To Como Yacht Club</span>
-                    <span class="lang-it">Verso il Como Yacht Club</span>
-                  </p>
-                  <ol class="list-decimal ml-5 space-y-1">
-                    <li>
-                      <span class="lang-en">From <strong>Como – S. Rocchetto</strong>, take <strong>ASF Autolinee Linea
-                          N1</strong> toward the lakefront.</span>
-                      <span class="lang-it">Da <strong>Como – S. Rocchetto</strong>, prendete <strong>ASF Autolinee
-                          Linea N1</strong> verso il lungolago.</span>
-                    </li>
-                    <li>
-                      <span class="lang-en">Get off at <strong>Como – Villa Olmo</strong>, then walk a few minutes along
-                        the lake to <strong>Como Yacht Club</strong>.</span>
-                      <span class="lang-it">Scendete a <strong>Como – Villa Olmo</strong>, poi camminate qualche minuto
-                        lungo il lago fino al <strong>Como Yacht Club</strong>.</span>
-                    </li>
-                  </ol>
-                </div>
-
-                <div>
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">Back to Como Central</span>
-                    <span class="lang-it">Ritorno a Como Central</span>
-                  </p>
-                  <ol class="list-decimal ml-5 space-y-1">
-                    <li>
-                      <span class="lang-en">Return to the <strong>Como – Villa Olmo</strong> bus stop.</span>
-                      <span class="lang-it">Tornate alla fermata <strong>Como – Villa Olmo</strong>.</span>
-                    </li>
-                    <li>
-                      <span class="lang-en">Take <strong>Linea N1</strong> back toward the centre.</span>
-                      <span class="lang-it">Prendete la <strong>Linea N1</strong> verso il centro.</span>
-                    </li>
-                    <li>
-                      <span class="lang-en">Get off at <strong>Como – S. Rocchetto</strong>, then walk back to the
-                        parking.</span>
-                      <span class="lang-it">Scendete a <strong>Como – S. Rocchetto</strong>, poi tornate al parcheggio a
-                        piedi.</span>
-                    </li>
-                  </ol>
-                </div>
-
-                <div class="pt-2 border-t border-sage-100">
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">Saturday night (last bus)</span>
-                    <span class="lang-it">Sabato sera (ultimo bus)</span>
-                  </p>
-                  <p class="text-sage-600">
-                    <span class="lang-en">Latest Saturday reference shown (winter service <strong>12/09/2025 →
-                        08/06/2026</strong>):</span>
-                    <span class="lang-it">Ultimo riferimento di sabato (servizio invernale <strong>12/09/2025 →
-                        08/06/2026</strong>):</span>
-                  </p>
-                  <p class="text-sage-700"><strong>23:41</strong> <span class="text-sage-300">from</span> <strong>Como –
-                      Villa Olmo</strong> <span class="text-sage-300">→</span> <strong>23:46</strong> <strong>S.
-                      Rocchetto</strong></p>
-                </div>
-              </div>
-            </div>
-
-            <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
-              <span class="lang-en">15 min walk</span>
-              <span class="lang-it">15 min a piedi</span>
-            </p>
-          </div>
-
-          <!-- P4 -->
-          <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
-            <div class="flex justify-between items-start mb-2">
-              <h4 class="font-bold text-sage-800 text-lg">Autosilo Viale Lecco</h4>
-              <a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8" target="_blank"
-                class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
-                <span class="lang-en">View Map &rarr;</span>
-                <span class="lang-it">Vedi Mappa &rarr;</span>
-              </a>
-            </div>
-            <p class="text-sm text-sage-500 font-light">
-              <span class="lang-en">Bus N1 from <em>Cavour</em> to <em>Villa Olmo</em>.</span>
-              <span class="lang-it">Bus N1 da <em>Cavour</em> a <em>Villa Olmo</em>.</span>
-            </p>
-
-            <!-- Bus details (Viale Lecco) -->
-            <div class="mt-4 bg-white/70 border border-sage-100 rounded-xl p-4">
-              <div class="flex items-center gap-2 text-sage-600 mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 17h2l-1.5 4h-1.5" />
-                  <path d="M3 17h18" />
-                  <path d="M5 17l-1.5 4H2" />
-                  <path d="M4 17V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10" />
-                  <path d="M6 11h12" />
-                  <path d="M6 7h12" />
-                  <circle cx="7.5" cy="17" r="1.5" />
-                  <circle cx="16.5" cy="17" r="1.5" />
-                </svg>
-                <span class="uppercase tracking-wide text-[11px] font-bold">Bus N1 to the Yacht Club</span>
-              </div>
-
-              <div class="text-sm text-sage-700 leading-relaxed space-y-2">
-                <div>
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">Walk to the bus stop</span>
-                    <span class="lang-it">Camminate verso la fermata</span>
-                  </p>
-                  <p>
-                    <span class="lang-en">Bus stop: <strong>Como – Cavour</strong></span>
-                    <span class="lang-it">Fermata: <strong>Como – Cavour</strong></span>
-                  </p>
-                </div>
-
-                <div>
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">To Como Yacht Club</span>
-                    <span class="lang-it">Verso il Como Yacht Club</span>
-                  </p>
-                  <ol class="list-decimal ml-5 space-y-1">
-                    <li>
-                      <span class="lang-en">From <strong>Como – Cavour</strong>, take <strong>ASF Autolinee Linea
-                          N1</strong> toward the lakefront.</span>
-                      <span class="lang-it">Da <strong>Como – Cavour</strong>, prendete <strong>ASF Autolinee Linea
-                          N1</strong> verso il lungolago.</span>
-                    </li>
-                    <li>
-                      <span class="lang-en">Get off at <strong>Como – Villa Olmo</strong>, then walk along the lake to
-                        <strong>Como Yacht Club</strong>.</span>
-                      <span class="lang-it">Scendete a <strong>Como – Villa Olmo</strong>, poi camminate lungo il lago
-                        fino al <strong>Como Yacht Club</strong>.</span>
-                    </li>
-                  </ol>
-                </div>
-
-                <div class="pt-2 border-t border-sage-100">
-                  <p class="font-semibold text-sage-800">
-                    <span class="lang-en">Saturday night (last bus)</span>
-                    <span class="lang-it">Sabato sera (ultimo bus)</span>
-                  </p>
-                  <p class="text-sage-700"><strong>23:41</strong> <span class="text-sage-300">from</span> <strong>Como –
-                      Villa Olmo</strong> <span class="text-sage-300">→</span> <strong>23:50</strong> <strong>Como –
-                      Cavour</strong></p>
-                </div>
-              </div>
-            </div>
-
-            <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
-              <span class="lang-en">20 min walk</span>
-              <span class="lang-it">20 min a piedi</span>
-            </p>
-          </div>
-        </div>
+    <!-- TRANSPORT TAB -->
+    <div id="view-transport" class="tab-content hidden animate-fade-in space-y-6">
+      <!-- Sub-navigation for Transport -->
+      <div
+        class="flex flex-wrap justify-center gap-2 mb-8 bg-white/30 backdrop-blur-sm p-2 rounded-3xl border border-white/50 max-w-2xl mx-auto shadow-sm">
+        <button onclick="switchSubTab('parking')" id="sub-tab-parking"
+          class="sub-nav-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-full border border-transparent hover:bg-white/50">
+          <span class="lang-en">Parking</span>
+          <span class="lang-it">Parcheggio</span>
+        </button>
+        <button onclick="switchSubTab('airports')" id="sub-tab-airports"
+          class="sub-nav-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-full border border-transparent hover:bg-white/50">
+          <span class="lang-en">Airports</span>
+          <span class="lang-it">Aeroporti</span>
+        </button>
+        <button onclick="switchSubTab('taxi')" id="sub-tab-taxi"
+          class="sub-nav-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-full border border-transparent hover:bg-white/50">
+          <span class="lang-en">Taxi</span>
+          <span class="lang-it">Taxi</span>
+        </button>
+        <button onclick="switchSubTab('carpool')" id="sub-tab-carpool"
+          class="sub-nav-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-full border border-transparent hover:bg-white/50">
+          <span class="lang-en">Carpool</span>
+          <span class="lang-it">Passaggi</span>
+        </button>
       </div>
 
-      <!-- Bus note (general) -->
-      <div class="bg-white rounded-2xl shadow-sm border border-sage-100/50 p-5">
-        <div class="flex items-start gap-3">
-          <div class="mt-0.5 text-sage-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M18 10A8 8 0 112 10a8 8 0 0116 0zm-8-4a1 1 0 00-1 1v3a1 1 0 00.293.707l2 2a1 1 0 001.414-1.414L11 9.586V7a1 1 0 00-1-1z"
-                clip-rule="evenodd" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-sage-800 text-sm mb-1">
-              <span class="lang-en">Important note about buses</span>
-              <span class="lang-it">Nota importante sugli autobus</span>
-            </h3>
-            <p class="text-sage-600 text-sm leading-relaxed">
-              <span class="lang-en">Bus services can change due to events or temporary diversions. We recommend
-                re-checking <strong>Linea N1</strong> on the official <a
-                  class="font-bold text-sage-500 hover:text-sage-800"
-                  href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
-                  target="_blank" rel="noopener noreferrer">ASF Autolinee</a> site before leaving.</span>
-              <span class="lang-it">I servizi degli autobus possono variare a causa di eventi o deviazioni temporanee.
-                Vi consigliamo di ricontrollare la <strong>Linea N1</strong> sul sito ufficiale di <a
-                  class="font-bold text-sage-500 hover:text-sage-800"
-                  href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
-                  target="_blank" rel="noopener noreferrer">ASF Autolinee</a> prima di partire.</span>
+      <!-- PARKING SUB-TAB -->
+      <div id="view-parking" class="sub-tab-content space-y-6">
+        <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 overflow-hidden">
+          <div class="p-8 bg-sage-50/30 border-b border-sage-100/50">
+            <h2 class="font-serif text-2xl md:text-3xl text-sage-800 mb-4 tracking-tight">
+              <span class="lang-en">Parking for Guests Arriving by Car</span>
+              <span class="lang-it">Parcheggio per gli ospiti in auto</span>
+            </h2>
+            <p class="text-sage-700 text-sm leading-relaxed max-w-2xl">
+              <span class="lang-en">For guests arriving with their own transportation, here are a few <strong>paid
+                  parking
+                  areas in Como</strong> where you can leave your car and then <strong>walk or take a bus</strong> to
+                reach <strong>Como Yacht Club</strong>. Please note: <strong>unfortunately, there is no free parking in
+                  the area</strong>.</span>
+              <span class="lang-it">Per gli ospiti che arrivano con i propri mezzi, ecco alcune <strong>aree di
+                  parcheggio
+                  a pagamento a Como</strong> dove potete lasciare l'auto e poi <strong>camminare o prendere un
+                  autobus</strong> per raggiungere il <strong>Como Yacht Club</strong>. Nota bene: <strong>purtroppo non
+                  ci sono parcheggi gratuiti in zona</strong>.</span>
             </p>
           </div>
-        </div>
-      </div>
 
-      <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-sage-100/50">
-        <iframe title="Map with parking options" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=parcheggio+near+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italy&z=16&output=embed"></iframe>
+          <div class="divide-y divide-sage-100/30">
+            <!-- P1 -->
+            <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sage-800 text-lg">Parcheggio Lungolago</h4>
+                <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869d0063fb2759:0x3a062a0d943c03e4"
+                  target="_blank"
+                  class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
+                  <span class="lang-en">View Map &rarr;</span>
+                  <span class="lang-it">Vedi Mappa &rarr;</span>
+                </a>
+              </div>
+              <p class="text-sm text-sage-500 font-light">
+                <span class="lang-en">Easiest option. Walk directly to the venue.</span>
+                <span class="lang-it">L'opzione più semplice. Camminate direttamente verso il luogo.</span>
+              </p>
+              <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
+                <span class="lang-en">2 min walk</span>
+                <span class="lang-it">2 min a piedi</span>
+              </p>
+            </div>
+
+            <!-- P2 -->
+            <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sage-800 text-lg">Centro Lago</h4>
+                <a href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x47869db2e7775585:0xf95f84e6b755e3fb"
+                  target="_blank"
+                  class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
+                  <span class="lang-en">View Map &rarr;</span>
+                  <span class="lang-it">Vedi Mappa &rarr;</span>
+                </a>
+              </div>
+              <p class="text-sm text-sage-500 font-light">
+                <span class="lang-en">Short walk along the lake. Or Bus N1 from Cavour.</span>
+                <span class="lang-it">Breve passeggiata lungo il lago. Oppure Bus N1 da Cavour.</span>
+              </p>
+              <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
+                <span class="lang-en">7 min walk</span>
+                <span class="lang-it">7 min a piedi</span>
+              </p>
+            </div>
+
+            <!-- P3 -->
+            <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sage-800 text-lg">Como Central</h4>
+                <a href="https://maps.app.goo.gl/Yu7GPdrTMzTmYMcz6" target="_blank"
+                  class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
+                  <span class="lang-en">View Map &rarr;</span>
+                  <span class="lang-it">Vedi Mappa &rarr;</span>
+                </a>
+              </div>
+              <p class="text-sm text-sage-500 font-light">
+                <span class="lang-en">Bus N1 from <em>S. Rocchetto</em> to <em>Villa Olmo</em>.</span>
+                <span class="lang-it">Bus N1 da <em>S. Rocchetto</em> a <em>Villa Olmo</em>.</span>
+              </p>
+
+              <!-- Bus details (Como Central) -->
+              <div class="mt-4 bg-white/70 border border-sage-100 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-sage-600 mb-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 17h2l-1.5 4h-1.5" />
+                    <path d="M3 17h18" />
+                    <path d="M5 17l-1.5 4H2" />
+                    <path d="M4 17V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10" />
+                    <path d="M6 11h12" />
+                    <path d="M6 7h12" />
+                    <circle cx="7.5" cy="17" r="1.5" />
+                    <circle cx="16.5" cy="17" r="1.5" />
+                  </svg>
+                  <span class="uppercase tracking-wide text-[11px] font-bold">Bus N1 to the Yacht Club</span>
+                </div>
+
+                <div class="text-sm text-sage-700 leading-relaxed space-y-2">
+                  <div>
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">Walk to the bus stop</span>
+                      <span class="lang-it">Camminate verso la fermata</span>
+                    </p>
+                    <p>
+                      <span class="lang-en">Bus stop: <strong>Como – S. Rocchetto</strong></span>
+                      <span class="lang-it">Fermata: <strong>Como – S. Rocchetto</strong></span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">To Como Yacht Club</span>
+                      <span class="lang-it">Verso il Como Yacht Club</span>
+                    </p>
+                    <ol class="list-decimal ml-5 space-y-1">
+                      <li>
+                        <span class="lang-en">From <strong>Como – S. Rocchetto</strong>, take <strong>ASF Autolinee
+                            Linea
+                            N1</strong> toward the lakefront.</span>
+                        <span class="lang-it">Da <strong>Como – S. Rocchetto</strong>, prendete <strong>ASF Autolinee
+                            Linea N1</strong> verso il lungolago.</span>
+                      </li>
+                      <li>
+                        <span class="lang-en">Get off at <strong>Como – Villa Olmo</strong>, then walk a few minutes
+                          along
+                          the lake to <strong>Como Yacht Club</strong>.</span>
+                        <span class="lang-it">Scendete a <strong>Como – Villa Olmo</strong>, poi camminate qualche
+                          minuto
+                          lungo il lago fino al <strong>Como Yacht Club</strong>.</span>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">Back to Como Central</span>
+                      <span class="lang-it">Ritorno a Como Central</span>
+                    </p>
+                    <ol class="list-decimal ml-5 space-y-1">
+                      <li>
+                        <span class="lang-en">Return to the <strong>Como – Villa Olmo</strong> bus stop.</span>
+                        <span class="lang-it">Tornate alla fermata <strong>Como – Villa Olmo</strong>.</span>
+                      </li>
+                      <li>
+                        <span class="lang-en">Take <strong>Linea N1</strong> back toward the centre.</span>
+                        <span class="lang-it">Prendete la <strong>Linea N1</strong> verso il centro.</span>
+                      </li>
+                      <li>
+                        <span class="lang-en">Get off at <strong>Como – S. Rocchetto</strong>, then walk back to the
+                          parking.</span>
+                        <span class="lang-it">Scendete a <strong>Como – S. Rocchetto</strong>, poi tornate al parcheggio
+                          a
+                          piedi.</span>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div class="pt-2 border-t border-sage-100">
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">Saturday night (last bus)</span>
+                      <span class="lang-it">Sabato sera (ultimo bus)</span>
+                    </p>
+                    <p class="text-sage-600">
+                      <span class="lang-en">Latest Saturday reference shown (winter service <strong>12/09/2025 →
+                          08/06/2026</strong>):</span>
+                      <span class="lang-it">Ultimo riferimento di sabato (servizio invernale <strong>12/09/2025 →
+                          08/06/2026</strong>):</span>
+                    </p>
+                    <p class="text-sage-700"><strong>23:41</strong> <span class="text-sage-300">from</span> <strong>Como
+                        –
+                        Villa Olmo</strong> <span class="text-sage-300">→</span> <strong>23:46</strong> <strong>S.
+                        Rocchetto</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
+                <span class="lang-en">15 min walk</span>
+                <span class="lang-it">15 min a piedi</span>
+              </p>
+            </div>
+
+            <!-- P4 -->
+            <div class="p-8 hover:bg-sage-50/50 transition-colors duration-300">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sage-800 text-lg">Autosilo Viale Lecco</h4>
+                <a href="https://maps.app.goo.gl/62m9FzPkVUqr2r3i8" target="_blank"
+                  class="text-[9px] font-black uppercase tracking-widest bg-sage-100 text-sage-800 px-3 py-1.5 rounded-full hover:bg-sage-800 hover:text-white transition-colors">
+                  <span class="lang-en">View Map &rarr;</span>
+                  <span class="lang-it">Vedi Mappa &rarr;</span>
+                </a>
+              </div>
+              <p class="text-sm text-sage-500 font-light">
+                <span class="lang-en">Bus N1 from <em>Cavour</em> to <em>Villa Olmo</em>.</span>
+                <span class="lang-it">Bus N1 da <em>Cavour</em> a <em>Villa Olmo</em>.</span>
+              </p>
+
+              <!-- Bus details (Viale Lecco) -->
+              <div class="mt-4 bg-white/70 border border-sage-100 rounded-xl p-4">
+                <div class="flex items-center gap-2 text-sage-600 mb-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 17h2l-1.5 4h-1.5" />
+                    <path d="M3 17h18" />
+                    <path d="M5 17l-1.5 4H2" />
+                    <path d="M4 17V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10" />
+                    <path d="M6 11h12" />
+                    <path d="M6 7h12" />
+                    <circle cx="7.5" cy="17" r="1.5" />
+                    <circle cx="16.5" cy="17" r="1.5" />
+                  </svg>
+                  <span class="uppercase tracking-wide text-[11px] font-bold">Bus N1 to the Yacht Club</span>
+                </div>
+
+                <div class="text-sm text-sage-700 leading-relaxed space-y-2">
+                  <div>
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">Walk to the bus stop</span>
+                      <span class="lang-it">Camminate verso la fermata</span>
+                    </p>
+                    <p>
+                      <span class="lang-en">Bus stop: <strong>Como – Cavour</strong></span>
+                      <span class="lang-it">Fermata: <strong>Como – Cavour</strong></span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">To Como Yacht Club</span>
+                      <span class="lang-it">Verso il Como Yacht Club</span>
+                    </p>
+                    <ol class="list-decimal ml-5 space-y-1">
+                      <li>
+                        <span class="lang-en">From <strong>Como – Cavour</strong>, take <strong>ASF Autolinee Linea
+                            N1</strong> toward the lakefront.</span>
+                        <span class="lang-it">Da <strong>Como – Cavour</strong>, prendete <strong>ASF Autolinee Linea
+                            N1</strong> verso il lungolago.</span>
+                      </li>
+                      <li>
+                        <span class="lang-en">Get off at <strong>Como – Villa Olmo</strong>, then walk along the lake to
+                          <strong>Como Yacht Club</strong>.</span>
+                        <span class="lang-it">Scendete a <strong>Como – Villa Olmo</strong>, poi camminate lungo il lago
+                          fino al <strong>Como Yacht Club</strong>.</span>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div class="pt-2 border-t border-sage-100">
+                    <p class="font-semibold text-sage-800">
+                      <span class="lang-en">Saturday night (last bus)</span>
+                      <span class="lang-it">Sabato sera (ultimo bus)</span>
+                    </p>
+                    <p class="text-sage-700"><strong>23:41</strong> <span class="text-sage-300">from</span> <strong>Como
+                        –
+                        Villa Olmo</strong> <span class="text-sage-300">→</span> <strong>23:50</strong> <strong>Como –
+                        Cavour</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="inline-block mt-4 text-[10px] font-black text-sage-400 uppercase tracking-[0.2em]">
+                <span class="lang-en">20 min walk</span>
+                <span class="lang-it">20 min a piedi</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bus note (general) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-sage-100/50 p-5">
+          <div class="flex items-start gap-3">
+            <div class="mt-0.5 text-sage-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M18 10A8 8 0 112 10a8 8 0 0116 0zm-8-4a1 1 0 00-1 1v3a1 1 0 00.293.707l2 2a1 1 0 001.414-1.414L11 9.586V7a1 1 0 00-1-1z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-sage-800 text-sm mb-1">
+                <span class="lang-en">Important note about buses</span>
+                <span class="lang-it">Nota importante sugli autobus</span>
+              </h3>
+              <p class="text-sage-600 text-sm leading-relaxed">
+                <span class="lang-en">Bus services can change due to events or temporary diversions. We recommend
+                  re-checking <strong>Linea N1</strong> on the official <a
+                    class="font-bold text-sage-500 hover:text-sage-800"
+                    href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
+                    target="_blank" rel="noopener noreferrer">ASF Autolinee</a> site before leaving.</span>
+                <span class="lang-it">I servizi degli autobus possono variare a causa di eventi o deviazioni temporanee.
+                  Vi consigliamo di ricontrollare la <strong>Linea N1</strong> sul sito ufficiale di <a
+                    class="font-bold text-sage-500 hover:text-sage-800"
+                    href="https://www.asfautolinee.it/search-for-lines-and-schedules/?lang=en&utm_source=chatgpt.com"
+                    target="_blank" rel="noopener noreferrer">ASF Autolinee</a> prima di partire.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-64 rounded-2xl overflow-hidden map-container shadow-sm border border-sage-100/50">
+          <iframe title="Map with parking options" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=parcheggio+near+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italy&z=16&output=embed"></iframe>
+        </div>
       </div>
     </div>
 
-    <!-- HOTELS TAB -->
-    <div id="view-hotels" class="tab-content hidden space-y-6">
+    <!-- AIRPORTS SUB-TAB -->
+    <div id="view-airports" class="sub-tab-content hidden space-y-6">
       <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 p-8 md:p-10">
         <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight">
           <span class="text-2xl grayscale opacity-50">🛎️</span>
@@ -1046,9 +1078,10 @@
           src="https://www.google.com/maps?q=hotels+near+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italy&z=15&output=embed"></iframe>
       </div>
     </div>
+    </div>
 
-    <!-- AIRPORTS TAB -->
-    <div id="view-airports" class="tab-content hidden space-y-6">
+    <!-- HOTELS TAB -->
+    <div id="view-hotels" class="tab-content hidden space-y-6">
       <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 p-8 md:p-10">
         <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight">
           <span class="text-2xl grayscale opacity-50">✈️</span>
@@ -1173,9 +1206,10 @@
           src="https://www.google.com/maps?q=Airports+near+Como+Italy&z=9&output=embed"></iframe>
       </div>
     </div>
+    </div>
 
-    <!-- TAXI TAB -->
-    <div id="view-taxi" class="tab-content hidden space-y-6">
+    <!-- TAXI SUB-TAB -->
+    <div id="view-taxi" class="sub-tab-content hidden space-y-6">
       <div class="glass-card rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40 p-8 md:p-10">
         <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight">
           <span class="text-2xl grayscale opacity-50">🚕</span>
@@ -1302,8 +1336,8 @@
       </div>
     </div>
 
-    <!-- CARPOOL TAB -->
-    <div id="view-carpool" class="tab-content hidden animate-fade-in space-y-6">
+    <!-- CARPOOL SUB-TAB -->
+    <div id="view-carpool" class="sub-tab-content hidden animate-fade-in space-y-6">
       <div class="glass-card p-8 md:p-12 rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40">
         <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-6 flex items-center gap-4 tracking-tight">
           <span class="text-2xl grayscale opacity-50">🚗</span>
@@ -1314,14 +1348,14 @@
         <p class="text-como-600 mb-2 text-sm leading-relaxed">
           <span class="lang-en">If you have extra space in your car or if you are looking for a ride, please use the
             spreadsheet below to coordinate with other guests.</span>
-          <span class="lang-it">Se avete spazio extra in auto o se cercate un passaggio, usate il foglio di calcolo qui
-            sotto per coordinarvi con gli altri ospiti.</span>
+          <span class="lang-it">Se avete spazio extra in auto o se cercate un passaggio, usate il foglio di
+            calcolo qui sotto per coordinarvi con gli altri ospiti.</span>
         </p>
         <p class="text-como-500 mb-6 text-xs leading-relaxed md:hidden">
-          <span class="lang-en">On mobile, tap the button to edit directly in Google Sheets (the embedded view can be
-            hard to edit on phones).</span>
-          <span class="lang-it">Da mobile, toccate il pulsante per modificare direttamente in Google Sheets (la vista
-            incorporata può essere difficile da modificare sul telefono).</span>
+          <span class="lang-en">On mobile, tap the button to edit directly in Google Sheets (the embedded view can
+            be hard to edit on phones).</span>
+          <span class="lang-it">Da mobile, toccate il pulsante per modificare direttamente in Google Sheets (la
+            vista incorporata può essere difficile da modificare sul telefono).</span>
         </p>
 
         <div class="flex flex-col gap-4">
@@ -1382,7 +1416,8 @@
               <span class="lang-it">Cerimonia e ricevimento sono nello stesso luogo?</span>
             </h3>
             <p class="text-como-600 leading-relaxed">
-              <span class="lang-en">Yes, both the ceremony and reception are at the Yacht Club in Lake Como.</span>
+              <span class="lang-en">Yes, both the ceremony and reception are at the Yacht Club in Lake
+                Como.</span>
               <span class="lang-it">Sì, sia la cerimonia che il ricevimento si terranno presso lo Yacht Club di
                 Como.</span>
             </p>
@@ -1405,9 +1440,11 @@
               <span class="lang-it">E per le esigenze alimentari?</span>
             </h3>
             <p class="text-como-600 leading-relaxed">
-              <span class="lang-en">We are catering for vegetarians, vegans, and nut/lactose-free diets. If you have any
+              <span class="lang-en">We are catering for vegetarians, vegans, and nut/lactose-free diets. If you
+                have any
                 other specific allergies, please let us know when you RSVP.</span>
-              <span class="lang-it">Abbiamo previsto opzioni per vegetariani, vegani e persone intolleranti a frutta a
+              <span class="lang-it">Abbiamo previsto opzioni per vegetariani, vegani e persone intolleranti a
+                frutta a
                 guscio e lattosio. Se avete altre allergie specifiche, fatecelo sapere nell'RSVP.</span>
             </p>
           </div>
@@ -1442,7 +1479,8 @@
                 <h3 class="font-bold text-sage-800 text-sm uppercase tracking-wider">NatWest Pay</h3>
               </div>
               <p class="text-xs text-sage-500 mb-6 leading-relaxed">
-                <span class="lang-en"><strong>Recommended for UK guests.</strong> Fast and secure bank transfer via
+                <span class="lang-en"><strong>Recommended for UK guests.</strong> Fast and secure bank transfer
+                  via
                   NatWest Pay It.</span>
                 <span class="lang-it"><strong>Consigliato per gli ospiti del Regno Unito.</strong> Trasferimento
                   bancario veloce e sicuro tramite NatWest Pay It.</span>
@@ -1542,8 +1580,46 @@
         localStorage.setItem('active-tab', tabName);
       }
 
+      // 5. Specialized logic for transport sub-tabs
+      if (tabName === 'transport') {
+        const savedSubTab = localStorage.getItem('active-sub-tab') || 'parking';
+        switchSubTab(savedSubTab, false);
+      }
+
       // Scroll to top of main content softly
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchSubTab(subTabName, savePersistence = true) {
+      // 1. Hide all sub-content views
+      const contents = document.querySelectorAll('.sub-tab-content');
+      contents.forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      // 2. Show the selected sub-view
+      const selectedView = document.getElementById('view-' + subTabName);
+      if (selectedView) {
+        selectedView.classList.remove('hidden');
+      }
+
+      // 3. Update button styles
+      const buttons = document.querySelectorAll('.sub-nav-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-sage-500', 'text-white', 'shadow-md');
+      });
+
+      // Set active style
+      const activeBtn = document.getElementById('sub-tab-' + subTabName);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.classList.add('bg-sage-500', 'text-white', 'shadow-md');
+      }
+
+      // 4. Persistence
+      if (savePersistence) {
+        localStorage.setItem('active-sub-tab', subTabName);
+      }
     }
 
     function setLanguage(lang) {
@@ -1574,7 +1650,15 @@
 
     // Initialize default tab and language
     document.addEventListener('DOMContentLoaded', () => {
-      const savedTab = localStorage.getItem('active-tab') || 'venue';
+      let savedTab = localStorage.getItem('active-tab') || 'venue';
+
+      // Migration: if saved tab was one of the transport sub-tabs, switch to transport
+      if (['parking', 'airports', 'taxi', 'carpool'].includes(savedTab)) {
+        localStorage.setItem('active-sub-tab', savedTab);
+        savedTab = 'transport';
+        localStorage.setItem('active-tab', 'transport');
+      }
+
       switchTab(savedTab, false); // Don't save back during initial load
 
       const savedLang = localStorage.getItem('preferred-lang') || 'en';
