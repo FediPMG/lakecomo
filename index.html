@@ -174,15 +174,15 @@
   <div class="blob blob-2"></div>
 
   <!-- Refined Sticky Header -->
-  <header
-    class="bg-white/70 backdrop-blur-lg z-50 border-b border-sage-100/30 transition-all duration-300">
+  <header class="bg-white/70 backdrop-blur-lg z-50 border-b border-sage-100/30 transition-all duration-300">
     <div class="max-w-4xl mx-auto px-4 py-8 text-center relative">
       <!-- Language Toggle -->
-      <div class="absolute right-4 top-4 flex bg-cream-50/50 p-1 rounded-full border border-sage-100/50">
+      <div
+        class="absolute right-4 top-4 md:right-6 md:top-6 flex bg-cream-50/50 p-1.5 rounded-full border border-sage-100/50 shadow-sm backdrop-blur-sm">
         <button onclick="setLanguage('en')" id="lang-btn-en"
-          class="text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all duration-300">EN</button>
+          class="text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-1.5 md:px-5 md:py-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-white/40">EN</button>
         <button onclick="setLanguage('it')" id="lang-btn-it"
-          class="text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all duration-300">IT</button>
+          class="text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-1.5 md:px-5 md:py-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-white/40">IT</button>
       </div>
 
       <p class="text-sage-400 font-medium tracking-[0.3em] text-[9px] uppercase mb-3 opacity-80">
@@ -1106,8 +1106,10 @@
             sotto per coordinarvi con gli altri ospiti.</span>
         </p>
         <p class="text-como-500 mb-6 text-xs leading-relaxed md:hidden">
-          <span class="lang-en">On mobile, tap the button to edit directly in Google Sheets (the embedded view can be hard to edit on phones).</span>
-          <span class="lang-it">Da mobile, toccate il pulsante per modificare direttamente in Google Sheets (la vista incorporata può essere difficile da modificare sul telefono).</span>
+          <span class="lang-en">On mobile, tap the button to edit directly in Google Sheets (the embedded view can be
+            hard to edit on phones).</span>
+          <span class="lang-it">Da mobile, toccate il pulsante per modificare direttamente in Google Sheets (la vista
+            incorporata può essere difficile da modificare sul telefono).</span>
         </p>
 
         <div class="flex flex-col gap-4">
@@ -1265,11 +1267,11 @@
 
       Object.keys(buttons).forEach(l => {
         if (l === lang) {
-          buttons[l].classList.remove('text-sage-400');
+          buttons[l].classList.remove('text-sage-400', 'hover:bg-white/40');
           buttons[l].classList.add('text-sage-900', 'bg-white', 'shadow-sm');
         } else {
           buttons[l].classList.remove('text-sage-900', 'bg-white', 'shadow-sm');
-          buttons[l].classList.add('text-sage-400');
+          buttons[l].classList.add('text-sage-400', 'hover:bg-white/40');
         }
       });
     }
