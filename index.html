@@ -1468,7 +1468,20 @@
 
   <!-- Tab Switching Logic -->
   <script>
+    const VALID_TABS = ['venue', 'schedule', 'hotels', 'transport', 'faq', 'gifts'];
+    const VALID_TRANSPORT_SUB_TABS = ['parking', 'airports', 'taxi', 'carpool'];
+
+    function normalizeTab(tabName) {
+      return VALID_TABS.includes(tabName) ? tabName : 'venue';
+    }
+
+    function normalizeSubTab(subTabName) {
+      return VALID_TRANSPORT_SUB_TABS.includes(subTabName) ? subTabName : 'parking';
+    }
+
     function switchTab(tabName, savePersistence = true) {
+      const safeTabName = normalizeTab(tabName);
+
       // 1. Hide all content views
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => {
@@ -1476,7 +1489,7 @@
       });
 
       // 2. Show the selected view
-      const selectedView = document.getElementById('view-' + tabName);
+      const selectedView = document.getElementById('view-' + safeTabName);
       if (selectedView) {
         selectedView.classList.remove('hidden');
       }
@@ -1488,19 +1501,19 @@
       });
 
       // Set active style
-      const activeBtn = document.getElementById('tab-' + tabName);
+      const activeBtn = document.getElementById('tab-' + safeTabName);
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
 
       // 4. Persistence
       if (savePersistence) {
-        localStorage.setItem('active-tab', tabName);
+        localStorage.setItem('active-tab', safeTabName);
       }
 
       // 5. Specialized logic for transport sub-tabs
-      if (tabName === 'transport') {
-        const savedSubTab = localStorage.getItem('active-sub-tab') || 'parking';
+      if (safeTabName === 'transport') {
+        const savedSubTab = normalizeSubTab(localStorage.getItem('active-sub-tab'));
         switchSubTab(savedSubTab, false);
       }
 
@@ -1509,6 +1522,8 @@
     }
 
     function switchSubTab(subTabName, savePersistence = true) {
+      const safeSubTabName = normalizeSubTab(subTabName);
+
       // 1. Hide all sub-content views
       const contents = document.querySelectorAll('.sub-tab-content');
       contents.forEach(content => {
@@ -1516,7 +1531,7 @@
       });
 
       // 2. Show the selected sub-view
-      const selectedView = document.getElementById('view-' + subTabName);
+      const selectedView = document.getElementById('view-' + safeSubTabName);
       if (selectedView) {
         selectedView.classList.remove('hidden');
       }
@@ -1528,14 +1543,14 @@
       });
 
       // Set active style
-      const activeBtn = document.getElementById('sub-tab-' + subTabName);
+      const activeBtn = document.getElementById('sub-tab-' + safeSubTabName);
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
 
       // 4. Persistence
       if (savePersistence) {
-        localStorage.setItem('active-sub-tab', subTabName);
+        localStorage.setItem('active-sub-tab', safeSubTabName);
       }
     }
 
@@ -1570,12 +1585,13 @@
       let savedTab = localStorage.getItem('active-tab') || 'venue';
 
       // Migration: if saved tab was one of the transport sub-tabs, switch to transport
-      if (['parking', 'airports', 'taxi', 'carpool'].includes(savedTab)) {
+      if (VALID_TRANSPORT_SUB_TABS.includes(savedTab)) {
         localStorage.setItem('active-sub-tab', savedTab);
         savedTab = 'transport';
         localStorage.setItem('active-tab', 'transport');
       }
 
+      savedTab = normalizeTab(savedTab);
       switchTab(savedTab, false); // Don't save back during initial load
 
       const savedLang = localStorage.getItem('preferred-lang') || 'en';
