@@ -1,0 +1,11 @@
+{
+  "name": "wedding-guide-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "dev": "npx serve ."
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

@@ -1,0 +1,46 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - button "EN" [ref=e5] [cursor=pointer]
+        - button "IT" [ref=e6] [cursor=pointer]
+      - paragraph [ref=e7]: The Wedding of
+      - heading "Federica & Max" [level=1] [ref=e8]
+      - navigation [ref=e9]:
+        - button "Venue" [ref=e10] [cursor=pointer]
+        - button "Schedule" [ref=e11] [cursor=pointer]
+        - button "Hotels" [ref=e12] [cursor=pointer]
+        - button "Transport" [ref=e13] [cursor=pointer]
+        - button "FAQ" [active] [ref=e14] [cursor=pointer]
+        - button "Gifts" [ref=e15] [cursor=pointer]
+      - generic [ref=e18]: 95 DAYS TO GO
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - heading "🤔 Frequently Asked Questions" [level=2] [ref=e22]:
+        - generic [ref=e23]: 🤔
+        - text: Frequently Asked Questions
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - heading "Are children invited to the wedding?" [level=3] [ref=e26]
+          - paragraph [ref=e27]: Of course!
+        - generic [ref=e28]:
+          - heading "How do we RSVP?" [level=3] [ref=e29]
+          - paragraph [ref=e30]:
+            - text: "Please RSVP to Max's email:"
+            - link "tsalxam@gmail.com" [ref=e31] [cursor=pointer]:
+              - /url: mailto:tsalxam@gmail.com
+        - generic [ref=e32]:
+          - heading "Are the wedding ceremony and the reception at the same venue?" [level=3] [ref=e33]
+          - paragraph [ref=e34]: Yes, both the ceremony and reception are at the Yacht Club in Lake Como.
+        - generic [ref=e35]:
+          - heading "What is the dress code?" [level=3] [ref=e36]
+          - paragraph [ref=e37]: Dress to impress!
+        - generic [ref=e38]:
+          - heading "What about dietary requirements?" [level=3] [ref=e39]
+          - paragraph [ref=e40]: We are catering for vegetarians, vegans, and nut/lactose-free diets. If you have any other specific allergies, please let us know when you RSVP.
+  - contentinfo [ref=e41]:
+    - paragraph [ref=e42]: Federica & Max · May 23, 2026
+```

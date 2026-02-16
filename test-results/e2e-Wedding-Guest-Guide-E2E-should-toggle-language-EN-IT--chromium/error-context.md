@@ -1,0 +1,52 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - button "EN" [ref=e5] [cursor=pointer]
+        - button "IT" [ref=e6] [cursor=pointer]
+      - paragraph [ref=e7]: The Wedding of
+      - heading "Federica & Max" [level=1] [ref=e8]
+      - navigation [ref=e9]:
+        - button "Venue" [ref=e10] [cursor=pointer]
+        - button "Schedule" [ref=e11] [cursor=pointer]
+        - button "Hotels" [ref=e12] [cursor=pointer]
+        - button "Transport" [ref=e13] [cursor=pointer]
+        - button "FAQ" [ref=e14] [cursor=pointer]
+        - button "Gifts" [ref=e15] [cursor=pointer]
+      - generic [ref=e18]: 95 DAYS TO GO
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: May 23, 2026
+        - generic [ref=e24]: "|"
+        - generic [ref=e25]: 3:00 PM
+        - generic [ref=e26]: "|"
+        - generic [ref=e27]: Como, Italy
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - img [ref=e30]
+          - generic [ref=e32]: Ceremony & Reception
+        - heading "Yacht Club Como" [level=2] [ref=e33]
+        - img "Yacht Club Como" [ref=e35]
+        - paragraph [ref=e36]:
+          - text: Viale Giancarlo Puecher, 8
+          - text: 22100 Como CO, Italia
+        - generic [ref=e37]:
+          - heading "Important Arrival Info" [level=3] [ref=e38]
+          - paragraph [ref=e39]:
+            - text: Please allow extra time for traffic. Try to arrive in central Como
+            - strong [ref=e40]: 45–60 minutes before 3:00 PM
+            - text: .
+        - generic [ref=e41]:
+          - link "Open Google Maps" [ref=e42] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia
+          - link "Get Directions" [ref=e43] [cursor=pointer]:
+            - /url: https://www.google.com/maps/dir/?api=1&destination=Yacht+Club+Como,+Viale+Giancarlo+Puecher,+8,+22100+Como+CO,+Italia
+      - iframe [ref=e45]:
+        
+  - contentinfo [ref=e46]:
+    - paragraph [ref=e47]: Federica & Max · May 23, 2026
+```
