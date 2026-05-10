@@ -1,0 +1,803 @@
+{
+  "version": 1,
+  "exportedAt": "2026-05-08T21:46:16.340Z",
+  "room": {
+    "length_m": 14,
+    "width_m": 7,
+    "rounded_end_radius_m": 3.5
+  },
+  "tables": [
+    {
+      "id": "t1",
+      "name": "Table 1",
+      "capacity": 13,
+      "x": 8.09021660940988,
+      "y": 1.3310414450509203
+    },
+    {
+      "id": "t2",
+      "name": "Table 2",
+      "capacity": 13,
+      "x": 4.116557802472796,
+      "y": 3.5131752014160154
+    },
+    {
+      "id": "t3",
+      "name": "Table 3",
+      "capacity": 13,
+      "x": 10.633424377441404,
+      "y": 1.2988898958478654
+    },
+    {
+      "id": "t4",
+      "name": "Table 4",
+      "capacity": 13,
+      "x": 10.646474347795756,
+      "y": 5.659952218191964
+    },
+    {
+      "id": "t5",
+      "name": "Table 5",
+      "capacity": 13,
+      "x": 8.198480551583428,
+      "y": 5.633567319597517
+    },
+    {
+      "id": "t6",
+      "name": "Table 6",
+      "capacity": 11,
+      "x": 9.33238094874791,
+      "y": 3.4584736960274833
+    },
+    {
+      "id": "t7",
+      "name": "Table 7",
+      "capacity": 11,
+      "x": 6.667273385184153,
+      "y": 3.5506935937064035
+    },
+    {
+      "id": "t8",
+      "name": "Table 8",
+      "capacity": 11,
+      "x": 5.606175722394669,
+      "y": 5.723733847481864
+    },
+    {
+      "id": "t9",
+      "name": "Table 9",
+      "capacity": 11,
+      "x": 5.517132132393972,
+      "y": 1.310579926627023
+    },
+    {
+      "id": "t10",
+      "name": "Table 10",
+      "capacity": 11,
+      "x": 11.641878032684327,
+      "y": 3.5789916447230743
+    }
+  ],
+  "guests": [
+    {
+      "id": "mhykelp7",
+      "name": "Hanya",
+      "tableId": "t2",
+      "seatIndex": 0
+    },
+    {
+      "id": "12ihxz1u",
+      "name": "Alex Soderman",
+      "tableId": "t2",
+      "seatIndex": 1
+    },
+    {
+      "id": "wujjfwfh",
+      "name": "Peter Sutoris",
+      "tableId": "t2",
+      "seatIndex": 2
+    },
+    {
+      "id": "zfchtgf0",
+      "name": "Natalia Naumenkova",
+      "tableId": "t2",
+      "seatIndex": 3
+    },
+    {
+      "id": "rxvjrxvw",
+      "name": "Cornelia Schlesinger",
+      "tableId": "t2",
+      "seatIndex": 4
+    },
+    {
+      "id": "37lkm5dy",
+      "name": "Kish",
+      "tableId": "t2",
+      "seatIndex": 5
+    },
+    {
+      "id": "q9nqdxv2",
+      "name": "Arianna O",
+      "tableId": "t2",
+      "seatIndex": 6
+    },
+    {
+      "id": "jkrlamo1",
+      "name": "Sara",
+      "tableId": "t2",
+      "seatIndex": 7
+    },
+    {
+      "id": "kp4z12gu",
+      "name": "Davide C",
+      "tableId": "t2",
+      "seatIndex": 8
+    },
+    {
+      "id": "amsrp9s5",
+      "name": "Jacopo",
+      "tableId": "t2",
+      "seatIndex": 9
+    },
+    {
+      "id": "5prb913i",
+      "name": "Bea C",
+      "tableId": "t2",
+      "seatIndex": 10
+    },
+    {
+      "id": "qj2u6uy8",
+      "name": "Bea B",
+      "tableId": "t2",
+      "seatIndex": 11
+    },
+    {
+      "id": "wl2aik0z",
+      "name": "Davide Ferrari",
+      "tableId": "t2",
+      "seatIndex": 12
+    },
+    {
+      "id": "drnykm53",
+      "name": "Federica Gavazza",
+      "tableId": "t6",
+      "seatIndex": 0
+    },
+    {
+      "id": "04a8rm3u",
+      "name": "Max Last",
+      "tableId": "t6",
+      "seatIndex": 1
+    },
+    {
+      "id": "74qccuqr",
+      "name": "Mark Somervail",
+      "tableId": "t6",
+      "seatIndex": 2
+    },
+    {
+      "id": "5i9z1d72",
+      "name": "Mary Bernareggi",
+      "tableId": "t6",
+      "seatIndex": 3
+    },
+    {
+      "id": "iow0y1dr",
+      "name": "Tom Sheraden",
+      "tableId": "t6",
+      "seatIndex": 4
+    },
+    {
+      "id": "0qufz0lx",
+      "name": "Marijke Sheraden",
+      "tableId": "t6",
+      "seatIndex": 5
+    },
+    {
+      "id": "g1ityymz",
+      "name": "Nick Poole",
+      "tableId": "t6",
+      "seatIndex": 6
+    },
+    {
+      "id": "fk9ujrgm",
+      "name": "Annie Poole",
+      "tableId": "t6",
+      "seatIndex": 7
+    },
+    {
+      "id": "p1mhpdtr",
+      "name": "Francine Last",
+      "tableId": "t6",
+      "seatIndex": 8
+    },
+    {
+      "id": "rlvn1vaf",
+      "name": "Duncan Last",
+      "tableId": "t6",
+      "seatIndex": 9
+    },
+    {
+      "id": "m9gw1exb",
+      "name": "Peter Last",
+      "tableId": "t6",
+      "seatIndex": 10
+    },
+    {
+      "id": "muv7auu9",
+      "name": "Bruno",
+      "tableId": "t8",
+      "seatIndex": 0
+    },
+    {
+      "id": "xamdh7un",
+      "name": "Laura Cicceri",
+      "tableId": "t8",
+      "seatIndex": 1
+    },
+    {
+      "id": "zi0isw06",
+      "name": "Agostino",
+      "tableId": "t8",
+      "seatIndex": 2
+    },
+    {
+      "id": "byhdky40",
+      "name": "Cristina",
+      "tableId": "t8",
+      "seatIndex": 3
+    },
+    {
+      "id": "k8o7s6t6",
+      "name": "Pierre Antonio",
+      "tableId": "t8",
+      "seatIndex": 4
+    },
+    {
+      "id": "jntflkbr",
+      "name": "Ester",
+      "tableId": "t8",
+      "seatIndex": 5
+    },
+    {
+      "id": "ybzmob25",
+      "name": "Rafaella",
+      "tableId": "t8",
+      "seatIndex": 6
+    },
+    {
+      "id": "llvw705f",
+      "name": "Silvano",
+      "tableId": "t8",
+      "seatIndex": 7
+    },
+    {
+      "id": "z8up5uvs",
+      "name": "Antonio Gavazza",
+      "tableId": "t8",
+      "seatIndex": 8
+    },
+    {
+      "id": "i8lrcnx4",
+      "name": "Daniela Crippa",
+      "tableId": "t8",
+      "seatIndex": 9
+    },
+    {
+      "id": "0wogv76p",
+      "name": "Guido",
+      "tableId": "t9",
+      "seatIndex": 0
+    },
+    {
+      "id": "6ykoqdb9",
+      "name": "Valeria",
+      "tableId": "t9",
+      "seatIndex": 1
+    },
+    {
+      "id": "7reu4sjp",
+      "name": "Zia Laura Rimoldi",
+      "tableId": "t9",
+      "seatIndex": 2
+    },
+    {
+      "id": "fc1c5s1q",
+      "name": "Zio Chicco Crippa",
+      "tableId": "t9",
+      "seatIndex": 3
+    },
+    {
+      "id": "8wpw10gb",
+      "name": "Zia Alessandra Nannini",
+      "tableId": "t9",
+      "seatIndex": 4
+    },
+    {
+      "id": "rxkshp90",
+      "name": "Sonia",
+      "tableId": "t9",
+      "seatIndex": 5
+    },
+    {
+      "id": "to46idv1",
+      "name": "Francesco",
+      "tableId": "t9",
+      "seatIndex": 6
+    },
+    {
+      "id": "6js7h7cx",
+      "name": "Daniela C",
+      "tableId": "t9",
+      "seatIndex": 7
+    },
+    {
+      "id": "0s33ccmc",
+      "name": "Antonio Frattini",
+      "tableId": "t9",
+      "seatIndex": 8
+    },
+    {
+      "id": "ypl8c33y",
+      "name": "Arianna",
+      "tableId": "t9",
+      "seatIndex": 9
+    },
+    {
+      "id": "5sf7i0uz",
+      "name": "Michele Gavazza",
+      "tableId": "t9",
+      "seatIndex": 10
+    },
+    {
+      "id": "5bvaqffq",
+      "name": "Tommaso Gorla",
+      "tableId": "t1",
+      "seatIndex": 0
+    },
+    {
+      "id": "o09s9lln",
+      "name": "Riccardo Gorla",
+      "tableId": "t1",
+      "seatIndex": 1
+    },
+    {
+      "id": "x2aauy6i",
+      "name": "Arianna B",
+      "tableId": "t1",
+      "seatIndex": 2
+    },
+    {
+      "id": "1btyoacq",
+      "name": "Bea Gavazza",
+      "tableId": "t1",
+      "seatIndex": 3
+    },
+    {
+      "id": "cweal4os",
+      "name": "Andrea",
+      "tableId": "t1",
+      "seatIndex": 4
+    },
+    {
+      "id": "x7zdbh5t",
+      "name": "Guilia Mauri",
+      "tableId": "t1",
+      "seatIndex": 5
+    },
+    {
+      "id": "2b1lhky1",
+      "name": "Giada",
+      "tableId": "t1",
+      "seatIndex": 6
+    },
+    {
+      "id": "acrfnbiq",
+      "name": "Erin Somervail",
+      "tableId": "t1",
+      "seatIndex": 7
+    },
+    {
+      "id": "actayrng",
+      "name": "Ricky Somervail",
+      "tableId": "t1",
+      "seatIndex": 8
+    },
+    {
+      "id": "el2vr7mj",
+      "name": "Devon",
+      "tableId": "t1",
+      "seatIndex": 9
+    },
+    {
+      "id": "7dz770uy",
+      "name": "Viola",
+      "tableId": "t1",
+      "seatIndex": 10
+    },
+    {
+      "id": "o7bh3td3",
+      "name": "Niccolo Crippa",
+      "tableId": "t1",
+      "seatIndex": 11
+    },
+    {
+      "id": "witlsbrm",
+      "name": "Matteo Gorla",
+      "tableId": "t1",
+      "seatIndex": 12
+    },
+    {
+      "id": "29kts3if",
+      "name": "Lyra Last",
+      "tableId": "t3",
+      "seatIndex": 0
+    },
+    {
+      "id": "831nlb91",
+      "name": "Tamara Last",
+      "tableId": "t3",
+      "seatIndex": 1
+    },
+    {
+      "id": "05p7ocjt",
+      "name": "Chris Niederauer",
+      "tableId": "t3",
+      "seatIndex": 2
+    },
+    {
+      "id": "yhv88ms4",
+      "name": "George Rees",
+      "tableId": "t3",
+      "seatIndex": 3
+    },
+    {
+      "id": "4r65xwch",
+      "name": "Keira Rees",
+      "tableId": "t3",
+      "seatIndex": 4
+    },
+    {
+      "id": "cvv194qj",
+      "name": "Roo Rees",
+      "tableId": "t3",
+      "seatIndex": 5
+    },
+    {
+      "id": "ieuig4a0",
+      "name": "Charlotte Rees",
+      "tableId": "t3",
+      "seatIndex": 6
+    },
+    {
+      "id": "89m8ei4f",
+      "name": "Dan Rees",
+      "tableId": "t3",
+      "seatIndex": 7
+    },
+    {
+      "id": "leaarvfq",
+      "name": "Anouk Julien",
+      "tableId": "t3",
+      "seatIndex": 8
+    },
+    {
+      "id": "ti4s8va7",
+      "name": "Jo Last",
+      "tableId": "t3",
+      "seatIndex": 9
+    },
+    {
+      "id": "hpqt5mji",
+      "name": "Leo Julien",
+      "tableId": "t3",
+      "seatIndex": 10
+    },
+    {
+      "id": "eh2gpu96",
+      "name": "Imogen Poole",
+      "tableId": "t3",
+      "seatIndex": 11
+    },
+    {
+      "id": "37wovxp9",
+      "name": "Kat Storace",
+      "tableId": "t3",
+      "seatIndex": 12
+    },
+    {
+      "id": "2rtui183",
+      "name": "Setu Manani",
+      "tableId": "t10",
+      "seatIndex": 0
+    },
+    {
+      "id": "90kxeb69",
+      "name": "Kunal Manani",
+      "tableId": "t10",
+      "seatIndex": 1
+    },
+    {
+      "id": "k3f6gvut",
+      "name": "Avi Manani",
+      "tableId": "t10",
+      "seatIndex": 2
+    },
+    {
+      "id": "x9c0g7kp",
+      "name": "Jeanne Berthelemy",
+      "tableId": "t10",
+      "seatIndex": 3
+    },
+    {
+      "id": "xhtb32va",
+      "name": "Kate Berthelemy",
+      "tableId": "t10",
+      "seatIndex": 4
+    },
+    {
+      "id": "vwtl1j6s",
+      "name": "Mathias Berthelemy",
+      "tableId": "t10",
+      "seatIndex": 5
+    },
+    {
+      "id": "m013fuk8",
+      "name": "Michel Berthelemy",
+      "tableId": "t10",
+      "seatIndex": 6
+    },
+    {
+      "id": "asc1ilq8",
+      "name": "Guillame Bethelemy",
+      "tableId": "t10",
+      "seatIndex": 7
+    },
+    {
+      "id": "mqyhvshy",
+      "name": "Maia Tapp",
+      "tableId": "t10",
+      "seatIndex": 8
+    },
+    {
+      "id": "bwp1u4i3",
+      "name": "Anna Last",
+      "tableId": "t10",
+      "seatIndex": 9
+    },
+    {
+      "id": "w3dnsb4w",
+      "name": "Luke Tapp",
+      "tableId": "t10",
+      "seatIndex": 10
+    },
+    {
+      "id": "t20eqp68",
+      "name": "Zia Dina",
+      "tableId": "t7",
+      "seatIndex": 0
+    },
+    {
+      "id": "iivhk2ti",
+      "name": "Paolo Galli",
+      "tableId": "t7",
+      "seatIndex": 1
+    },
+    {
+      "id": "a88sfyjy",
+      "name": "Zia Grazia Gavazza",
+      "tableId": "t7",
+      "seatIndex": 2
+    },
+    {
+      "id": "2gke13jw",
+      "name": "Zio Antonio Repetto",
+      "tableId": "t7",
+      "seatIndex": 3
+    },
+    {
+      "id": "yhs731ls",
+      "name": "Signora Irma",
+      "tableId": "t7",
+      "seatIndex": 4
+    },
+    {
+      "id": "hxkqqghu",
+      "name": "Zia Anna Actis",
+      "tableId": "t7",
+      "seatIndex": 5
+    },
+    {
+      "id": "jvschdo1",
+      "name": "Zia Paola Crippa",
+      "tableId": "t7",
+      "seatIndex": 6
+    },
+    {
+      "id": "rhbjqvuc",
+      "name": "Zio Paolo Gorla",
+      "tableId": "t7",
+      "seatIndex": 7
+    },
+    {
+      "id": "xidej6ar",
+      "name": "Roberta",
+      "tableId": "t7",
+      "seatIndex": 8
+    },
+    {
+      "id": "p7smfz0n",
+      "name": "Paolo I.",
+      "tableId": "t7",
+      "seatIndex": 9
+    },
+    {
+      "id": "fwb7hxkp",
+      "name": "Ana Ilic",
+      "tableId": "t4",
+      "seatIndex": 0
+    },
+    {
+      "id": "gmvt292l",
+      "name": "Beck Hickman",
+      "tableId": "t4",
+      "seatIndex": 1
+    },
+    {
+      "id": "i1ag08ze",
+      "name": "Ren Lin",
+      "tableId": "t4",
+      "seatIndex": 2
+    },
+    {
+      "id": "be6aid6d",
+      "name": "Manuel Rivoir",
+      "tableId": "t4",
+      "seatIndex": 3
+    },
+    {
+      "id": "3iwyopf2",
+      "name": "Deepika Bhoojwani",
+      "tableId": "t4",
+      "seatIndex": 4
+    },
+    {
+      "id": "i8t2n3kz",
+      "name": "Chiara",
+      "tableId": "t4",
+      "seatIndex": 5
+    },
+    {
+      "id": "zkvhrp2n",
+      "name": "Ivan Sorgente",
+      "tableId": "t4",
+      "seatIndex": 6
+    },
+    {
+      "id": "io3qtmm0",
+      "name": "Jan-Willem Sanderman",
+      "tableId": "t4",
+      "seatIndex": 7
+    },
+    {
+      "id": "sqsoquhq",
+      "name": "Jorman Fuenmayor",
+      "tableId": "t4",
+      "seatIndex": 8
+    },
+    {
+      "id": "tsjqaf9o",
+      "name": "Zarah Yusouf",
+      "tableId": "t4",
+      "seatIndex": 9
+    },
+    {
+      "id": "z601hpa6",
+      "name": "Matt",
+      "tableId": "t4",
+      "seatIndex": 10
+    },
+    {
+      "id": "dvxqmdxc",
+      "name": "Santiago Gutierrez",
+      "tableId": "t4",
+      "seatIndex": 11
+    },
+    {
+      "id": "mjq6q6hu",
+      "name": "Catherine",
+      "tableId": "t4",
+      "seatIndex": 12
+    },
+    {
+      "id": "gx7i3nbz",
+      "name": "Laura Cavallini",
+      "tableId": "t5",
+      "seatIndex": 0
+    },
+    {
+      "id": "vzfu3h8l",
+      "name": "Simone",
+      "tableId": "t5",
+      "seatIndex": 1
+    },
+    {
+      "id": "i60uzcax",
+      "name": "Caterina Repetto",
+      "tableId": "t5",
+      "seatIndex": 2
+    },
+    {
+      "id": "9c5qn1fi",
+      "name": "Teresa Repetto",
+      "tableId": "t5",
+      "seatIndex": 4
+    },
+    {
+      "id": "w6r3rccc",
+      "name": "Naomi Last",
+      "tableId": "t5",
+      "seatIndex": 5
+    },
+    {
+      "id": "i35see6l",
+      "name": "Daniel",
+      "tableId": "t5",
+      "seatIndex": 6
+    },
+    {
+      "id": "6zjnrwci",
+      "name": "Rachel Sheraden",
+      "tableId": "t5",
+      "seatIndex": 7
+    },
+    {
+      "id": "efmifm0y",
+      "name": "Drew",
+      "tableId": "t5",
+      "seatIndex": 8
+    },
+    {
+      "id": "9hb8jqhf",
+      "name": "Jago Poole",
+      "tableId": "t5",
+      "seatIndex": 9
+    },
+    {
+      "id": "4336gb57",
+      "name": "Elena",
+      "tableId": "t5",
+      "seatIndex": 10
+    },
+    {
+      "id": "jtjlidb7",
+      "name": "Mattia",
+      "tableId": "t5",
+      "seatIndex": 3
+    },
+    {
+      "id": "7gam0k5t",
+      "name": "Jaka Skraba",
+      "tableId": "t5",
+      "seatIndex": 11
+    },
+    {
+      "id": "zgvdayta",
+      "name": "Matejka",
+      "tableId": "t5",
+      "seatIndex": 12
+    },
+    {
+      "id": "2ti02e3a",
+      "name": "Jimmy (Photographer)",
+      "tableId": "t7",
+      "seatIndex": 10
+    },
+    {
+      "id": "1u5b59hl",
+      "name": "Tobia",
+      "tableId": "t8",
+      "seatIndex": 10
+    }
+  ]
+}

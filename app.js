@@ -103,6 +103,7 @@ class WeddingApp {
             case 'transport': main.appendChild(this.renderTransport()); break;
             case 'faq': main.appendChild(this.renderFAQ()); break;
             case 'gifts': main.appendChild(this.renderGifts()); break;
+            case 'seating': main.appendChild(this.renderSeating()); break;
         }
 
         // Update Nav State
@@ -644,6 +645,154 @@ class WeddingApp {
         </div>
       `;
         return div;
+    }
+
+    renderSeating() {
+        const l = this.lang;
+        const div = document.createElement('div');
+        div.id = 'view-seating';
+        div.className = "animate-fade-in space-y-6";
+
+        div.innerHTML = `
+        <div class="glass-card p-4 md:p-12 rounded-3xl shadow-xl shadow-sage-900/5 border border-white/40">
+           <h2 class="font-serif text-3xl md:text-4xl text-sage-800 mb-8 flex items-center gap-4 tracking-tight px-4 md:px-0">
+             <span class="text-2xl grayscale opacity-50">🍽️</span>
+             ${l === 'en' ? 'Seating Plan' : 'Piano dei Tavoli'}
+           </h2>
+           <div id="seating-plan-container" class="w-full overflow-x-auto bg-[#F4ECD8] rounded-xl border border-sage-100/50 flex justify-center py-4" style="min-height: 400px; box-shadow: inset 0 0 0 1px #C5B58C, 0 1px 0 #C5B58C, 0 18px 40px -28px rgba(35,25,10,0.35);">
+              <p class="text-sage-500 mt-10">Loading layout...</p>
+           </div>
+        </div>
+        `;
+
+        fetch('content/seating-plan.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Not found');
+                return res.json();
+            })
+            .then(data => {
+                const container = div.querySelector('#seating-plan-container');
+                container.innerHTML = this.generateSeatingSVG(data);
+            })
+            .catch(err => {
+                const container = div.querySelector('#seating-plan-container');
+                container.innerHTML = `<p class="text-sage-500 mt-10">${l === 'en' ? 'Plan not available yet.' : 'Piano non ancora disponibile.'}</p>`;
+            });
+
+        return div;
+    }
+
+    generateSeatingSVG(data) {
+        const SCALE = 56;
+        const PADDING = 32;
+        const ROOM_L = 14;
+        const ROOM_W = 7;
+        const ARC_R = ROOM_W / 2;
+
+        const TABLE_CFG = {
+            13: { tableR: 0.85, chairR: 1.13, chairSize: 0.22 },
+            11: { tableR: 0.70, chairR: 0.97, chairSize: 0.22 },
+        };
+
+        const C = {
+            paperHi: '#F4ECD8',
+            surface: '#F8F1DD',
+            line: '#C5B58C',
+            stroke: '#5C4A2F',
+            soft: '#6F614A',
+            ink: '#1F180E',
+            paper: '#EBE3D1',
+            cap13: '#DBC1A0',
+            cap11: '#CAC1A6',
+            gold: '#C68522',
+        };
+
+        const SVG_W = ROOM_L * SCALE + PADDING * 2;
+        const SVG_H = ROOM_W * SCALE + PADDING * 2;
+
+        const sx = ARC_R * SCALE + PADDING;
+        const sy = PADDING;
+        const rr = ROOM_L * SCALE + PADDING;
+        const rb = ROOM_W * SCALE + PADDING;
+        const ar = ARC_R * SCALE;
+        const roomPath = `M ${sx} ${sy} L ${rr} ${sy} L ${rr} ${rb} L ${sx} ${rb} A ${ar} ${ar} 0 0 1 ${sx} ${sy} Z`;
+
+        const guestBySeat = new Map();
+        if (data.guests) {
+            data.guests.forEach(g => {
+                if (g.tableId) guestBySeat.set(`${g.tableId}-${g.seatIndex}`, g);
+            });
+        }
+
+        const initials = (name) => {
+            const p = (name || '').trim().split(/\s+/).filter(Boolean);
+            if (p.length === 0) return '?';
+            if (p.length >= 2) return (p[0][0] + p[p.length - 1][0]).toUpperCase();
+            return p[0].slice(0, 2).toUpperCase();
+        };
+
+        let tablesSvg = '';
+        if (data.tables) {
+            data.tables.forEach(t => {
+                const cfg = TABLE_CFG[t.capacity] || TABLE_CFG[11];
+                const cx = t.x * SCALE + PADDING;
+                const cy = t.y * SCALE + PADDING;
+                const r = cfg.tableR * SCALE;
+
+                let chairsSvg = '';
+                for (let i = 0; i < t.capacity; i++) {
+                    const a = (i / t.capacity) * 2 * Math.PI - Math.PI / 2;
+                    const chX = cx + cfg.chairR * SCALE * Math.cos(a);
+                    const chY = cy + cfg.chairR * SCALE * Math.sin(a);
+                    const chr = cfg.chairSize * SCALE / 2;
+
+                    const guest = guestBySeat.get(`${t.id}-${i}`);
+                    
+                    if (guest) {
+                        chairsSvg += `
+                            <g>
+                                <circle cx="${chX}" cy="${chY}" r="${chr}" fill="${C.ink}" />
+                                <text x="${chX}" y="${chY}" font-family="Outfit, sans-serif" font-size="8.5px" font-weight="600" fill="${C.paperHi}" text-anchor="middle" dy="0.3em" pointer-events="none" letter-spacing="0.02em">${initials(guest.name)}</text>
+                                <title>${guest.name}</title>
+                            </g>
+                        `;
+                    } else {
+                        chairsSvg += `
+                            <g>
+                                <circle cx="${chX}" cy="${chY}" r="${chr}" fill="${C.surface}" stroke="${C.line}" stroke-width="1" />
+                                <text x="${chX}" y="${chY}" font-family="Outfit, sans-serif" font-size="8px" fill="${C.soft}" text-anchor="middle" dy="0.3em" pointer-events="none">${i + 1}</text>
+                            </g>
+                        `;
+                    }
+                }
+
+                tablesSvg += `
+                    <g>
+                        <circle cx="${cx}" cy="${cy}" r="${r}" fill="${t.capacity === 13 ? C.cap13 : C.cap11}" stroke="${C.stroke}" stroke-width="1.6" />
+                        <text x="${cx}" y="${cy}" font-family="Fraunces, serif" font-size="14px" font-weight="500" fill="${C.ink}" text-anchor="middle" dy="0.3em">${t.name}</text>
+                        ${chairsSvg}
+                    </g>
+                `;
+            });
+        }
+
+        return `
+        <svg viewBox="0 0 ${SVG_W} ${SVG_H}" style="width: 100%; min-width: 720px; height: auto; display: block;">
+            <defs>
+                <pattern id="gridFine" width="${SCALE / 2}" height="${SCALE / 2}" patternUnits="userSpaceOnUse">
+                    <path d="M ${SCALE / 2} 0 L 0 0 0 ${SCALE / 2}" fill="none" stroke="${C.line}" stroke-width="0.3" opacity="0.25" />
+                </pattern>
+                <pattern id="grid" width="${SCALE}" height="${SCALE}" patternUnits="userSpaceOnUse">
+                    <path d="M ${SCALE} 0 L 0 0 0 ${SCALE}" fill="none" stroke="${C.line}" stroke-width="0.5" opacity="0.5" />
+                </pattern>
+            </defs>
+            <rect x="0" y="0" width="${SVG_W}" height="${SVG_H}" fill="${C.paperHi}" />
+            <rect x="0" y="0" width="${SVG_W}" height="${SVG_H}" fill="url(#gridFine)" />
+            <path d="${roomPath}" fill="${C.surface}" stroke="${C.stroke}" stroke-width="1.6" />
+            <path d="${roomPath}" fill="url(#grid)" />
+            ${tablesSvg}
+        </svg>
+        `;
     }
 
     startCountdown() {
