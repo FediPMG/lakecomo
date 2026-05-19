@@ -11,4 +11,4 @@ Your presence is the most valuable gift to us, but if you absolutely insist on g
    - **BIC:** ICRAITRRCAR
    - **Bank:** Banca di Credito Cooperativo di Carate Brianza e Treviglio
    - **Branch:** Filiale di Cesano Maderno
-   - **Beneficiary:** Gavazza Federica Paola Marta
+   - **Beneficiary:** Gavazza Federica Paola Maria
